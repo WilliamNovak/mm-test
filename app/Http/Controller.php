@@ -3,7 +3,7 @@
 namespace MadeiraMadeira\Application\Http;
 
 /**
- * Application Controller
+ * Application Controller Class.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
