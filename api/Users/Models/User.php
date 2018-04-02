@@ -3,7 +3,7 @@
 namespace Api\Users\Models;
 
 /**
- * User Model
+ * User Model.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
@@ -12,7 +12,14 @@ class User {
     /**
      * @var string
      */
-    protected $table = 'users';
+    public $table = 'users';
+    /**
+     * @var array
+     */
+    protected $columns = [
+        'id', 'first_name', 'last_name', 'email', 'password'
+    ];
+
     /**
      * User constructor.
      */

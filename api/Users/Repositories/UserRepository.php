@@ -9,19 +9,29 @@ use Database\Database;
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class UserRepository extends Database {
+class UserRepository {
 
     /**
-     * @var object
+     * @var User
      */
     private $user;
     /**
+     * @var Database
+     */
+    private $db;
+    /**
      * UserRepository constructor.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Database $database)
     {
-        parent::__construct();
         $this->user = $user;
+        $this->db = $database->getInstance();
+    }
+
+    public function getAll()
+    {
+        $query = "SELECT * FROM {$this->user->table}";
+        return $this->db->query($query);
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace Database\Connections;
 
+use MadeiraMadeira\Application\Exceptions\DatabaseErrorException;
 use MadeiraMadeira\Application\Exceptions\ConfigNotFoundException;
+use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
  * PDO custom class.
@@ -46,12 +48,12 @@ class PDO
 
 	public function __construct($configParams = false)
 	{
-		if ($configParams && is_object($configParams)) {
-			$this->config = (object) $configParams;
-			$this->connect();
-		} else {
-			// TODO create custom exception.
+		if (!$configParams || !is_object($configParams)) {
+			throw new ConfigNotFoundException('Database params is empty.', StatusCode::HTTP_INTERNAL_ERROR);
 		}
+
+		$this->config = (object) $configParams;
+		$this->connect();
 	}
 
 	private function connect()
@@ -70,7 +72,7 @@ class PDO
 			);
 			$this->isConnected = true;
 		} catch (\PDOException $e) {
-			throw new ConfigNotFoundException($e->getMessage());
+			throw new DatabaseErrorException($e->getMessage(), StatusCode::HTTP_INTERNAL_ERROR);
 		}
 	}
 

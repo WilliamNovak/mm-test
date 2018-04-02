@@ -8,7 +8,7 @@
             'pdo' => [
                 'driver' => env('DB_CONNECTION'),
                 'dns' =>
-                    env('DB_CONNECTION', 'mysql') . ":" . implode(';',
+                    env('DB_CONNECTION').":".implode(';',
                     [
                         'host='    . env('DB_HOST'),
                         'port='    . env('DB_PORT'),

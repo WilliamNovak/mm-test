@@ -31,8 +31,16 @@ class UserController extends Controller {
     */
     public function getAll()
     {
-        $db = new \Database\Database;
-        dd($db);
+        $users = $this->userService->getAll();
+        if (empty($users)) {
+            return Response::json([
+                'success' => false
+            ], StatusCode::HTTP_NOT_FOUND);
+        }
+        return Response::json([
+            'success' => true,
+            'users' => $users
+        ], StatusCode::HTTP_SUCCESS);
     }
 
     /**

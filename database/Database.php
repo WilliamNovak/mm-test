@@ -33,7 +33,7 @@ class Database implements DatabaseInterface {
      * Get database instance.
      * @return object
      */
-    protected function getInstance()
+    public function getInstance()
     {
         return $this->instance;
     }
