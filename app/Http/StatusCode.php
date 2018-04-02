@@ -6,6 +6,7 @@ namespace MadeiraMadeira\Application\Http;
  * Status Code Class.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @method statusCodeDescription(int $statusCode)
  */
 class StatusCode {
 

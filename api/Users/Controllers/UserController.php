@@ -4,6 +4,7 @@ namespace Api\Users\Controllers;
 
 use MadeiraMadeira\Application\Http\Controller;
 use MadeiraMadeira\Application\Http\Response;
+use MadeiraMadeira\Application\Http\StatusCode;
 use Api\Users\Services\UserService;
 
 /**
@@ -39,7 +40,7 @@ class UserController extends Controller {
     public function getById($id)
     {
         $user = $this->userService->getById($id);
-        return Response::json($user, 200);
+        return Response::json($user, StatusCode::HTTP_SUCCESS);
     }
 
 }
