@@ -32,11 +32,13 @@ class UserController extends Controller {
     public function getAll()
     {
         $users = $this->userService->getAll();
+
         if (empty($users)) {
             return Response::json([
                 'success' => false
             ], StatusCode::HTTP_NOT_FOUND);
         }
+
         return Response::json([
             'success' => true,
             'users' => $users
@@ -48,7 +50,27 @@ class UserController extends Controller {
     public function getById($id)
     {
         $user = $this->userService->getById($id);
-        return Response::json($user, StatusCode::HTTP_SUCCESS);
+
+        if (empty($user)) {
+            return Response::json([
+                'success' => false
+            ], StatusCode::HTTP_NOT_FOUND);
+        }
+
+        return Response::json([
+            'success' => true,
+            'user' => $user
+        ], StatusCode::HTTP_SUCCESS);
+    }
+
+    /**
+     * Magic method to retrive instance of this class.
+     *
+     * @see http://php.net/manual/en/language.oop5.magic.php#object.invoke
+     */
+    public function __invoke()
+    {
+        return;
     }
 
 }

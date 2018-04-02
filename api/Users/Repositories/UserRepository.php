@@ -32,14 +32,12 @@ class UserRepository {
         return $this->user->select()->get();
     }
 
-    /**
-     * Magic method to retrive instance of this class.
-     *
-     * @see http://php.net/manual/en/language.oop5.magic.php#object.invoke
-     */
-    public function __invoke()
+    public function getById($userId = 0)
     {
-        return;
+        return $this->user
+            ->select()
+            ->where('id', '=', $userId)
+            ->first();
     }
 
 }
