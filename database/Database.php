@@ -2,9 +2,14 @@
 
 namespace Database;
 use Database\Connections\PDO;
-
 use Database\Interfaces\DatabaseInterface;
 
+/**
+ * Database class.
+ * TODO add more description to this class.
+ *
+ * @author William Novak <williamnvk@gmail.com>
+ */
 class Database implements DatabaseInterface {
 
     /**

@@ -4,6 +4,17 @@ namespace Database;
 use Database\Interfaces\ModelInterface;
 use Database\Database;
 
+/**
+ * Database class.
+ * This class extends Database\Database class.
+ * This class implements Database\Interfaces\ModelInterface.
+ * This class is my custom ORM.
+ * TODO create another class or function to put funcitons to mount SQL Query, like Laravel Eloquent, Critéria etc.
+ * TODO create way to genereta SQL for all databases, includin NOSQL databases.
+ * TODO create documentation of this.
+ *
+ * @author William Novak <williamnvk@gmail.com>
+ */
 class Model extends Database implements ModelInterface {
 
     /**
@@ -50,12 +61,24 @@ class Model extends Database implements ModelInterface {
      */
     public function select()
     {
-        $this->sql = "SELECT {$this->alias}.* FROM {$this->model->table} AS {$this->alias} ";
+        $alias = $this->alias;
+        $table = $this->model->table;
+        /**
+         * Display onlyy columns listed on `protected $fillable` of model instancied.
+         */
+        $cola = ', ' . $alias . '.'; # result: `, x.column`
+        $columns = $alias . '.' . implode($cola, $this->model->fillable);
+        /**
+         * Make sql with vars.
+         * TODO make array os arguments.
+         */
+        $this->sql = "SELECT {$columns} FROM {$table} AS {$alias} ";
         return $this;
     }
 
     /**
-     * Make `where {$column} {$operator} {$value}`
+     * Make `where {$column} {$operator} {$value}`.
+     * NOTE Multiple 'where' clausules need be add AND operator.
      * @param string $column
      * @param string $operator
      * @param mixed  $value
@@ -107,7 +130,7 @@ class Model extends Database implements ModelInterface {
 
     /**
      * Clean sql string.
-     * Execute this funcion before execution of query.
+     * Execute this funcion before execution query.
      * @return void
      */
     private function formatQuery()
@@ -116,7 +139,7 @@ class Model extends Database implements ModelInterface {
     }
 
     /**
-     * Raw SQL.
+     * Dewbugs and die application, to raw SQL informed on the top.
      * @return string
      */
     public function rawSql()

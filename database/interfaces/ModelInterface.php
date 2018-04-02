@@ -14,6 +14,6 @@ interface ModelInterface {
     public function where($column, $operator, $value);
     public function get();
     public function first();
-    public function rawSql();    
+    public function rawSql();
 
 }
