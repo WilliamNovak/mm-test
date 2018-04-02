@@ -3,9 +3,10 @@
 namespace MadeiraMadeira\Application\Http;
 
 /**
- * Application Controller
+ * Response Class.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @method static json(array $response, int $http_status_code)
  */
 abstract class Response {
 
@@ -27,6 +28,8 @@ abstract class Response {
 
     /**
      * Return formated json frm array.
+     * @param array $response
+     * #param int $http_status_code
      */
     public static function json($response = [], $http_status_code = 200)
     {

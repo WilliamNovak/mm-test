@@ -6,6 +6,8 @@ if ( env('APP_ENV', 'local') !== 'local' ) {
 }
 
 use \FastRoute\RouteCollector;
+use MadeiraMadeira\Application\Http\Response;
+use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
  * If containers file dont exists, trigger error exception.
@@ -56,16 +58,14 @@ $dispatcher = \FastRoute\simpleDispatcher(function(RouteCollector $r) use (&$rou
 $route = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 switch ($route[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
-        echo '404 Not Found';
+        Response::json('Route not found', StatusCode::HTTP_NOT_FOUND);
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-        echo '405 Method Not Allowed';
+        Response::json('Method Not Allowed', StatusCode::HTTP_METHOD_NOT_ALLOWED);
         break;
     case FastRoute\Dispatcher::FOUND:
         $controller = $route[1];
         $parameters = $route[2];
-        // We could do $container->get($controller) but $container->call()
-        // does that automatically
         $container->call($controller, $parameters);
         break;
 }

@@ -3,7 +3,7 @@
 namespace MadeiraMadeira\Application\Http;
 
 /**
- * Application Controller
+ * Status Code Class.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
@@ -13,6 +13,7 @@ class StatusCode {
      * List of Status Http responses.
      */
     const HTTP_NOT_FOUND = 404;
+    const HTTP_METHOD_NOT_ALLOWED = 405;
     const HTTP_BAD_REQUEST = 400;
     const HTTP_SUCCESS = 200;
     const HTTP_INTERNAL_ERROR = 500;
