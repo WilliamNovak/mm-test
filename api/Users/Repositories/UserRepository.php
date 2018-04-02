@@ -37,6 +37,7 @@ class UserRepository {
         return $this->user
             ->select()
             ->where('id', '=', $userId)
+            ->where('id', '>', 0)
             ->first();
     }
 

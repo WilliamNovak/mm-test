@@ -25,11 +25,22 @@ class Model extends Database implements ModelInterface {
     /**
      * Database constructor.
      */
-    public function __construct($model)
+    public function __construct()
     {
         parent::__construct();
         $this->database = $this->instance;
+    }
+
+    /**
+     * Define model.
+     * @param object $model
+     * @return void
+     */
+    public function setModel($model)
+    {
         $this->model = $model;
+        // Define alias (the first letter of table attribute of related model).
+        // TODO add another function or create a another class to collect the alias and do not create equals alias.
         $this->alias = substr($this->model->table, 0, 1);
     }
 
@@ -52,7 +63,12 @@ class Model extends Database implements ModelInterface {
      */
     public function where($column, $operator = '=', $value)
     {
-        $this->sql .= "WHERE {$this->alias}.{$column} {$operator} {$value}";
+        if (preg_match('/\bWHERE\b/', $this->sql)) {
+            $this->sql .= " AND ";
+        } else {
+            $this->sql .= " WHERE ";
+        }
+        $this->sql .= "{$this->alias}.{$column} {$operator} {$value} ";
         return $this;
     }
 
@@ -62,6 +78,7 @@ class Model extends Database implements ModelInterface {
      */
     public function get()
     {
+        $this->formatQuery();
         $queryResult = $this->database->query($this->sql);
         $this->clearSql();
         return $queryResult;
@@ -73,6 +90,7 @@ class Model extends Database implements ModelInterface {
      */
     public function first()
     {
+        $this->formatQuery();
         $queryResult = $this->database->row($this->sql);
         $this->clearSql();
         return $queryResult;
@@ -88,11 +106,22 @@ class Model extends Database implements ModelInterface {
     }
 
     /**
+     * Clean sql string.
+     * Execute this funcion before execution of query.
+     * @return void
+     */
+    private function formatQuery()
+    {
+        $this->sql = str_replace('  ', ' ', $this->sql);
+    }
+
+    /**
      * Raw SQL.
      * @return string
      */
     public function rawSql()
     {
+        $this->formatQuery();
         dd($this->sql);
     }
 
