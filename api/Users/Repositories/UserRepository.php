@@ -22,16 +22,14 @@ class UserRepository {
     /**
      * UserRepository constructor.
      */
-    public function __construct(User $user, Database $database)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->db = $database->getInstance();
     }
 
     public function getAll()
     {
-        $query = "SELECT * FROM {$this->user->table}";
-        return $this->db->query($query);
+        return $this->user->select()->get();
     }
 
     /**

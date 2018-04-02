@@ -4,6 +4,6 @@ namespace Database\Interfaces;
 
 interface DatabaseInterface {
 
-    public function __construct();
+    public function __construct($fix);
 
 }

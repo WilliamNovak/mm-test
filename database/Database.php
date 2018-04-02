@@ -14,7 +14,7 @@ class Database implements DatabaseInterface {
     /**
      * Database constructor.
      */
-    public function __construct()
+    public function __construct($fix = null)
     {
         $db = config(DATABASE_CONFIG);
         $databaseType = $db['type'];
@@ -33,7 +33,7 @@ class Database implements DatabaseInterface {
      * Get database instance.
      * @return object
      */
-    public function getInstance()
+    protected function getInstance()
     {
         return $this->instance;
     }

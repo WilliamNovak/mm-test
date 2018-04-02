@@ -1,13 +1,14 @@
 <?php
 
 namespace Api\Users\Models;
+use Database\Model;
 
 /**
  * User Model.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class User {
+class User extends Model {
 
     /**
      * @var string
@@ -23,9 +24,9 @@ class User {
     /**
      * User constructor.
      */
-    public function __construct()
+    public function __construct($fix = null)
     {
-
+        parent::__construct($this);
     }
 
     public function getById($id)
