@@ -67,4 +67,17 @@ class UserRepository {
             ->first();
     }
 
+    /**
+     * Get one user by id column.
+     *
+     * @return array
+     */
+    public function create($data)
+    {
+        return $this->user
+            ->select()
+            ->where('id', '=', $userId)
+            ->first();
+    }
+
 }

@@ -66,6 +66,12 @@ switch ($route[0]) {
     case FastRoute\Dispatcher::FOUND:
         $controller = $route[1];
         $parameters = $route[2];
+
+        // if ( $_SERVER['REQUEST_METHOD'] === 'POST') {
+        //     $fromPost = json_decode(file_get_contents('php://input'), true);
+        //     $parameters = $fromPost;
+        // }
+
         $container->call($controller, $parameters);
         break;
 }

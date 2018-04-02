@@ -4,11 +4,12 @@ namespace Api\Users\Controllers;
 
 use MadeiraMadeira\Application\Http\Controller;
 use MadeiraMadeira\Application\Http\Response;
+use MadeiraMadeira\Application\Http\Request;
 use MadeiraMadeira\Application\Http\StatusCode;
 use Api\Users\Services\UserService;
 
 /**
- * User Controller
+ * User Controller.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
@@ -28,16 +29,13 @@ class UserController extends Controller {
     }
 
     /**
-    */
+     * Get all users.
+     *
+     * @return Response
+     */
     public function getAll()
     {
         $users = $this->userService->getAll();
-
-        if (empty($users)) {
-            return Response::json([
-                'success' => false
-            ], StatusCode::HTTP_NOT_FOUND);
-        }
 
         return Response::json([
             'success' => true,
@@ -46,16 +44,29 @@ class UserController extends Controller {
     }
 
     /**
-    */
+     * Get one user by id.
+     *
+     * @return Response
+     */
     public function getById($id)
     {
         $user = $this->userService->getById($id);
 
-        if (empty($user)) {
-            return Response::json([
-                'success' => false
-            ], StatusCode::HTTP_NOT_FOUND);
-        }
+        return Response::json([
+            'success' => true,
+            'user' => $user
+        ], StatusCode::HTTP_SUCCESS);
+    }
+
+    /**
+     * Create user.
+     *
+     * @return Response
+     */
+    public function create(Request $request)
+    {
+        $data = $request->get('user');
+        $user = $this->userService->create($data);
 
         return Response::json([
             'success' => true,
