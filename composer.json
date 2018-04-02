@@ -1,0 +1,36 @@
+{
+    "name": "mm",
+    "description": "",
+    "type": "project",
+    "homepage": "http://github.com/",
+    "keywords": ["pure php", "frameworkless", "madeira madeira"],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0.0",
+        "php-di/phpdoc-reader": "^2.0.0",
+        "php-di/php-di": "^6.0",
+        "nikic/fast-route": "^1.3"
+    },
+    "autoload": {
+        "classmap": [
+            "database",
+            "api",
+            "app"
+        ]
+    },
+    "authors": [
+        {
+            "name": "William Novak",
+            "email": "williamnvk@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "serve": [
+            "php -S 0.0.0.0:8000 -t /var/www/mm"
+        ]
+    }
+}
