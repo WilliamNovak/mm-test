@@ -8,11 +8,11 @@
             'pdo' => [
                 'driver' => env('DB_CONNECTION'),
                 'dns' =>
-                    env('DB_CONNECTION').":".implode(';',
+                    env('DB_CONNECTION') . ":" . implode(';',
                     [
                         'host='    . env('DB_HOST'),
                         'port='    . env('DB_PORT'),
-                        'dbname='  . env('DB_DATABASE'),
+                        'dbname='  . env('DB_DATABASE', 'mm'),
                         'charset=' . env('DB_CHARSET', 'utf8')
                     ]
                 ),

@@ -1,3 +1,7 @@
+CREATE DATABASE `mm`;
+
+USE `mm`;
+
 CREATE TABLE `mm`.`users` (
  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
  `first_name` VARCHAR(72) NOT NULL,
@@ -24,12 +28,6 @@ CREATE TABLE `mm`.`users` (
   PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `mm`.`contacts`
-ADD INDEX `user_id_idx` (`user_id` ASC);
+ALTER TABLE `mm`.`contacts` ADD INDEX `user_id_idx` (`user_id` ASC);
 
-ALTER TABLE `mm`.`contacts`
-ADD CONSTRAINT `user_id`
-  FOREIGN KEY (`user_id`)
-  REFERENCES `mm`.`users` (`id`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
+ALTER TABLE `mm`.`contacts` ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `mm`.`users` (`id`) ON DELETE CASCADE;
