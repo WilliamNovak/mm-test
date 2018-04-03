@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Users\Models;
+namespace MadeiraMadeira\Application\Authentication\Models;
 use Database\ORM;
 
 /**

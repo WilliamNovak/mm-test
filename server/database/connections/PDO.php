@@ -8,7 +8,7 @@ use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
  * PDO custom class.
- * TODO crete whay to this methods is reutilizable on another drivers, with same names, parameter and returns.
+ * TODO create way to this methods is reutilizable on another drivers, with same names, parameter and returns.
  *
  * Modified and adapdated to this project:
  * @author William Novak <williamnvk@gmail.com> on 2018-04-02

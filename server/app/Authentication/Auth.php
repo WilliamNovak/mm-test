@@ -3,7 +3,7 @@
 namespace MadeiraMadeira\Application\Authentication;
 
 use MadeiraMadeira\Application\Exceptions\AuthFailureException;
-use Api\Users\Models\User;
+use MadeiraMadeira\Application\Authentication\Models\User;
 
 /**
  * Authentication Trait.
@@ -69,7 +69,7 @@ class Auth {
         /**
          * Find user by e-mail.
          */
-        $user = $this->user->select()->where('email', '=', "'{$email}'")->first();
+        $user = $this->user->where('email', '=', $email)->first();
 
         /**
          * If user not found, throw new exception.
@@ -81,7 +81,7 @@ class Auth {
         /**
          * If password dont math, throw new exception.
          */
-        if ($user['password'] !== md5($password)){
+        if ($user['password'] !== md5($password)) {
             throw new AuthFailureException("invalid password.");
         }
 
@@ -108,10 +108,10 @@ class Auth {
     {
         $this->accessData = $userObject;
         $object = new \StdClass;
-        $object->id = $userObject['id'];
-        $object->first_name = $userObject['first_name'];
-        $object->last_name = $userObject['last_name'];
-        $object->email = $userObject['email'];
+        $object->id = (int) $userObject['id'];
+        $object->first_name = (string) ucwords(strtolower($userObject['first_name']));
+        $object->last_name = (string) ucwords(strtolower($userObject['last_name']));
+        $object->email = (string) strtolower($userObject['email']);
         $this->accessData = $object;
     }
 

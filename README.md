@@ -1,9 +1,3 @@
-## Madeira Madeira Test
+### Madeira Madeira Test Package
 
 ...
-
-
-```
-$ git clone ...
-
-```

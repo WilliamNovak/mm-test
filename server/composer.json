@@ -30,7 +30,7 @@
             "php -r \"copy('.env.example', '.env');\""
         ],
         "serve": [
-            "php -S 0.0.0.0:8000 -t /var/www/mm"
+            "php -S 0.0.0.0:8000 -t /var/www/mm/server"
         ]
     }
 }

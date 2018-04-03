@@ -1,8 +1,7 @@
 <?php
 
 namespace Api\Users\Repositories;
-use Api\Users\Models\User;
-use Database\Database;
+use MadeiraMadeira\Application\Authentication\Models\User;
 
 /**
  * User Repository.
@@ -15,10 +14,6 @@ class UserRepository {
      * @var User
      */
     private $user;
-    /**
-     * @var Database
-     */
-    private $db;
     /**
      * UserRepository constructor.
      */
@@ -34,7 +29,7 @@ class UserRepository {
      */
     public function getAll()
     {
-        return $this->user->get();
+        return $this->user->select()->get();
     }
 
     /**
@@ -54,6 +49,7 @@ class UserRepository {
      */
     public function create($data = [])
     {
+        $data['password'] = md5($data['password']);
         return $this->user->create($data);
     }
 
@@ -64,6 +60,9 @@ class UserRepository {
      */
     public function update($userId, $data = [])
     {
+        if (isset($data['password'])) {
+            $data['password'] = md5($data['password']);
+        }
         return $this->user->update($userId, $data);
     }
 
