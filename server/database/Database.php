@@ -7,6 +7,7 @@ use Database\Interfaces\DatabaseInterface;
 /**
  * Database class.
  * TODO add more description to this class.
+ * TODO add more connection types.
  *
  * @author William Novak <williamnvk@gmail.com>
  */

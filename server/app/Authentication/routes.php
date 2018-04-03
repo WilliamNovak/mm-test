@@ -1,31 +1,25 @@
 <?php
-
-/**
- * @var string
- */
-$prefix = 'auth';
-/**
- * @var string
- */
-$route = '/auth';
-/**
- * @var string
- */
-$controller = 'MadeiraMadeira\Application\Authentication\Controllers\AuthController';
-
 # Make routes collection of users controllers.
 return [
     /**
-     * User Routes.
+     * Register Route.
      */
-    $prefix . '_log_in' => [
+    'register' => [
         'method' => 'POST',
-        'path' => $route . '/authorize',
-        'controller' => [$controller, 'logIn']
+        'path' => '/register',
+        'controller' => ['MadeiraMadeira\Application\Authentication\Controllers\RegisterController', 'register']
     ],
-    $prefix . '_log_out' => [
+    /**
+     * Auth Routes.
+     */
+    'auth_log_in' => [
+        'method' => 'POST',
+        'path' => '/auth/authorize',
+        'controller' => ['MadeiraMadeira\Application\Authentication\Controllers\AuthController', 'logIn']
+    ],
+    'auth_log_out' => [
         'method' => 'GET',
-        'path' => $route . '/logOut',
-        'controller' => [$controller, 'logOut']
+        'path' => '/auth/logOut',
+        'controller' => ['MadeiraMadeira\Application\Authentication\Controllers\AuthController', 'logOut']
     ]
 ];

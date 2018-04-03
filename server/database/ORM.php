@@ -9,10 +9,12 @@ use Database\Database;
  * This class extends Database\Database class.
  * This class implements Database\Interfaces\OrmInterface.
  * This class is my custom ORM.
+ *
  * TODO create another class or function to put funcitons to mount SQL Query, like Laravel Eloquent, Critéria etc.
  * TODO create way to genereta SQL for all databases, including NOSQL databases.
  * TODO create documentation of this.
- * TODO INTEGRADE PDO TO THIS CLASS AND ADD `BIND PARAMETERS METHOD` (IS BETTER).
+ * TODO INTEGRATE PDO TO THIS CLASS AND ADD `BIND PARAMETERS METHOD` (IS BETTER THAN THIS).
+  *
  * @author William Novak <williamnvk@gmail.com>
  */
 class ORM extends Database implements OrmInterface {
@@ -55,6 +57,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Define model.
+     *
      * @param object $model
      * @return void
      */
@@ -92,6 +95,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Make `select * from {table}`
+     *
      * @return Model
      */
     public function select()
@@ -114,6 +118,7 @@ class ORM extends Database implements OrmInterface {
     /**
      * Make `where {$column} {$operator} {$value}`.
      * NOTE Multiple 'where' clausules need be add AND operator.
+     *
      * @param string $column
      * @param string $operator
      * @param mixed  $value
@@ -142,6 +147,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Return query result data.
+     *
      * @return array
      */
     public function get()
@@ -154,6 +160,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Return query result data.
+     *
      * @return array
      */
     public function first()
@@ -166,6 +173,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Clear sql string.
+     *
      * @return void
      */
     private function clearSql()
@@ -176,6 +184,7 @@ class ORM extends Database implements OrmInterface {
     /**
      * Clean sql string.
      * Execute this funcion before execution query.
+     *
      * @return void
      */
     private function formatQuery()
@@ -185,6 +194,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Dewbugs and die application, to raw SQL informed on the top.
+     *
      * @return string
      */
     public function rawSql()
@@ -195,6 +205,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Make `insert into {$table} ({$column}) VALUES ({$values})`.
+     *
      * @param array $data
      * @return array
      */
@@ -240,6 +251,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Make `update {$table} set {$column} where {$index}`.
+     *
      * @param string $index
      * @param array $params
      * @return array
@@ -273,6 +285,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Make `DELTE FROM {$table} WHERE {$index}`.
+     *
      * @param string $index
      * @return array
      */
@@ -291,6 +304,7 @@ class ORM extends Database implements OrmInterface {
 
     /**
      * Make `DELTE FROM {$table} WHERE {$index}`.
+     *
      * @param string $index
      * @return array
      */
