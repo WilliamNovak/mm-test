@@ -4,7 +4,7 @@ namespace Api\Users\Services;
 use Api\Users\Repositories\UserRepository;
 use MadeiraMadeira\Application\Http\Response;
 use MadeiraMadeira\Application\Http\StatusCode;
-
+use MadeiraMadeira\Application\Authentication\Services\EmailService;
 /**
  * User Service
  *
@@ -17,11 +17,16 @@ class UserService {
      */
     private $userRepository;
     /**
+     * @var EmailService
+     */
+    private $emailService;
+    /**
      * UserService constructor.
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, EmailService $emailService)
     {
         $this->userRepository = $userRepository;
+        $this->emailService = $emailService;
     }
 
     /**
@@ -59,6 +64,7 @@ class UserService {
     private function getRequestedUser($userId)
     {
         $user = $this->userRepository->getById($userId);
+
         if (empty($user)) {
             return Response::json([
                 'success' => false,
@@ -76,6 +82,7 @@ class UserService {
      */
     public function create($data = [])
     {
+        $checkEmail = $this->emailService->check($data['email']);
         return $this->userRepository->create($data);
     }
 
@@ -87,7 +94,12 @@ class UserService {
      */
     public function update($userId, $data = [])
     {
+        dd('opa');
         $this->getRequestedUser($userId);
+        if (isset($data['email'])) {
+            $this->emailService->check($data['email']);
+        }
+
         return $this->userRepository->update($userId, $data);
     }
 

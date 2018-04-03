@@ -128,7 +128,9 @@ class ORM extends Database implements OrmInterface {
     {
 
         if (!preg_match('/\bSELECT\b/', $this->sql)) {
-            $this->select();
+            if ( !preg_match('/\bINSERT\b/', $this->sql) && !preg_match('/\bUPDATE\b/', $this->sql) && !preg_match('/\bDELETE\b/', $this->sql) ) {
+                $this->select();
+            }
         }
 
         if (preg_match('/\bWHERE\b/', $this->sql)) {
@@ -271,7 +273,7 @@ class ORM extends Database implements OrmInterface {
         $mapedColumns = "{$this->alias}." . implode(",{$this->alias}.", $parameters);
         $mapedParameters = str_replace('\'null\'', 'NULL', $mapedColumns);
 
-        $this->sql = "UPDATE {$this->table} AS {$this->alias} SET {$mapedColumns}";
+        $this->sql = "UPDATE {$this->table} AS {$this->alias} SET {$mapedColumns} ";
         $this->where($this->pk, '=', $index);
         $this->formatQuery();
         // $this->rawSql();
@@ -279,7 +281,7 @@ class ORM extends Database implements OrmInterface {
         // Clear sql query.
         $this->clearSql();
 
-        return $result;
+        return $this->where($this->pk, '=', $index)->first();
 
     }
 

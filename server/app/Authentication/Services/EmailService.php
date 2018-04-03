@@ -53,7 +53,7 @@ class EmailService {
             return Response::json([
                 'success' => false,
                 'user' => 'e-mail already in use.'
-            ], StatusCode::HTTP_NOT_FOUND);
+            ], StatusCode::HTTP_BAD_REQUEST);
         }
 
         return true;

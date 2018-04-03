@@ -82,7 +82,7 @@ class UserController extends Controller {
     }
 
     /**
-     * Get one user by id.
+     * Update user by id.
      * @param int $id
      * @param Request $request
      * @return Response
@@ -91,7 +91,7 @@ class UserController extends Controller {
     {
         $data = $request->get('user');
         $user = $this->userService->update($id, $data);
-
+        
         return Response::json([
             'success' => true,
             'user' => $user

@@ -3,7 +3,7 @@
 namespace MadeiraMadeira\Application\Authentication;
 
 use MadeiraMadeira\Application\Exceptions\AuthFailureException;
-use Api\Users\Models\User;
+use MadeiraMadeira\Application\Authentication\Models\User;
 
 /**
  * Authentication Trait.
