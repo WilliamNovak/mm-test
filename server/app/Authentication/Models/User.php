@@ -7,18 +7,15 @@ use Database\ORM;
  * User Model.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class User extends ORM {
-
-    /**
-     * @var string
-     */
 
     /**
      * @var array
      */
     protected $fillable = [
-        'id', 'first_name', 'last_name', 'email', 'password'
+        'id', 'first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active'
     ];
     /**
      * @var array

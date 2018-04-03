@@ -10,6 +10,7 @@ use Database\Interfaces\DatabaseInterface;
  * TODO add more connection types.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class Database implements DatabaseInterface {
 

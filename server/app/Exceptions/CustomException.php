@@ -6,8 +6,9 @@ use MadeiraMadeira\Application\Http\Response;
 
 /**
  * Custom Exception Abstract Class.
- * 
+ *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 abstract class CustomException extends \Exception implements CustomExceptionInterface
 {

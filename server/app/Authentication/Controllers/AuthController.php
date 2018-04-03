@@ -9,9 +9,10 @@ use MadeiraMadeira\Application\Http\StatusCode;
 use MadeiraMadeira\Application\Authentication\Services\AuthService;
 
 /**
- * User Controller.
+ * Auth Controller.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class AuthController extends Controller {
 

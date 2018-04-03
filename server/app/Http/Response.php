@@ -5,7 +5,8 @@ use MadeiraMadeira\Application\Http\StatusCode;
 /**
  * Http Response Class.
  *
- * @author William Novak <williamnvk@gmail.com>
+* @author William Novak <williamnvk@gmail.com>
+
  * @method static json(array $response, int $http_status_code)
  */
 abstract class Response {

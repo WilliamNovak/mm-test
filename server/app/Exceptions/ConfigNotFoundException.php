@@ -6,6 +6,7 @@ namespace MadeiraMadeira\Application\Exceptions;
  * Custom exception.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class ConfigNotFoundException extends CustomException
 {

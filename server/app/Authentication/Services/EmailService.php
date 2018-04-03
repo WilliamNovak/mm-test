@@ -6,9 +6,10 @@ use MadeiraMadeira\Application\Http\Response;
 use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
- * Auth Service
+ * Email Service.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class EmailService {
 

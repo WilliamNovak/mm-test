@@ -3,10 +3,10 @@
 /**
  * API REST
  *
- * @package  MadeiraMadeira
  * @author   William Novak <williamnvk@gmail.com>
+ * @package  MadeiraMadeira
  * @version  1.0.0
- * @date     2018-04-02
+ * @date     2018-04-02 ~ 2018-04-03
  */
 
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

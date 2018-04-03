@@ -3,6 +3,7 @@
 /**
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 
 use MadeiraMadeira\Application\Http\StatusCode;
