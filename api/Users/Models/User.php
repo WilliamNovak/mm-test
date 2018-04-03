@@ -1,39 +1,44 @@
 <?php
 
 namespace Api\Users\Models;
+use Database\ORM;
 
 /**
- * User Model
+ * User Model.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class User {
+class User extends ORM {
 
     /**
      * @var string
      */
-    protected $table = 'users';
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'first_name', 'last_name', 'email', 'password'
+    ];
+    /**
+     * @var array
+     */
+    protected $hidden = [
+        'id', 'created_at', 'updated_at'
+    ];
+
     /**
      * User constructor.
      */
     public function __construct()
     {
-
+        parent::__construct();
+        parent::setModel($this);
     }
 
-    public function getById($id)
+    public function toObject($data)
     {
-
-    }
-
-    /**
-     * Magic method to retrive instance of this class.
-     *
-     * @see http://php.net/manual/en/language.oop5.magic.php#object.invoke
-     */
-    public function __invoke()
-    {
-        return;
+        //
     }
 
 }

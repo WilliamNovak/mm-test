@@ -7,12 +7,12 @@ namespace MadeiraMadeira\Application\Exceptions;
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class DatabaseErrorException extends CustomException
+class AuthFailureException extends CustomException
 {
     /**
      * ConfigNotFoundException constructor.
      */
-    public function __construct($message = null, $code = 500)
+    public function __construct($message = null, $code = 401)
     {
         parent::__construct($message, $code);
     }

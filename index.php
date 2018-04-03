@@ -6,7 +6,7 @@
  * @package  MadeiraMadeira
  * @author   William Novak <williamnvk@gmail.com>
  * @version  1.0.0
- * @date     2018-04-01
+ * @date     2018-04-02
  */
 
 $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

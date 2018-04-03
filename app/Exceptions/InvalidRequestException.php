@@ -7,7 +7,7 @@ namespace MadeiraMadeira\Application\Exceptions;
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class DatabaseErrorException extends CustomException
+class InvalidRequestException extends CustomException
 {
     /**
      * ConfigNotFoundException constructor.

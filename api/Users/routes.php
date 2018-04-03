@@ -15,6 +15,9 @@ $controller = 'Api\Users\Controllers\UserController';
 
 # Make routes collection of users controllers.
 return [
+    /**
+     * User Routes.
+     */
     $prefix . '_get' => [
         'method' => 'GET',
         'path' => $route,

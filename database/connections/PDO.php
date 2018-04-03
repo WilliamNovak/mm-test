@@ -2,12 +2,18 @@
 
 namespace Database\Connections;
 
+use MadeiraMadeira\Application\Exceptions\DatabaseErrorException;
 use MadeiraMadeira\Application\Exceptions\ConfigNotFoundException;
+use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
  * PDO custom class.
+ * TODO crete whay to this methods is reutilizable on another drivers, with same names, parameter and returns.
  *
- * @author William Novak <williamnvk@gmail.com>
+ * Modified and adapdated to this project:
+ * @author William Novak <williamnvk@gmail.com> on 2018-04-02
+ * Source:
+ * @author lincanbin <https://github.com/lincanbin/PHP-PDO-MySQL-Class/blob/master/src/PDO.class.php>
  */
 class PDO
 {
@@ -44,16 +50,22 @@ class PDO
 	 */
     private $config;
 
+	/**
+	 * PDO constructor.
+	 */
 	public function __construct($configParams = false)
 	{
-		if ($configParams && is_object($configParams)) {
-			$this->config = (object) $configParams;
-			$this->connect();
-		} else {
-			// TODO create custom exception.
+		if (!$configParams || !is_object($configParams)) {
+			throw new ConfigNotFoundException('Database params is empty.', StatusCode::HTTP_INTERNAL_ERROR);
 		}
+
+		$this->config = (object) $configParams;
+		$this->connect();
 	}
 
+	/**
+	 * @return object
+	 */
 	private function connect()
 	{
 		try {
@@ -70,25 +82,35 @@ class PDO
 			);
 			$this->isConnected = true;
 		} catch (\PDOException $e) {
-			throw new ConfigNotFoundException($e->getMessage());
+			throw new DatabaseErrorException($e->getMessage(), StatusCode::HTTP_INTERNAL_ERROR);
 		}
 	}
 
-
-	public function closeconnection()
+	/**
+	 * Closes instance.
+	 *
+	 * @return void
+	 */
+	public function closeConnection()
 	{
 		$this->instance = null;
 	}
 
-
+	/**
+	 * Closes instance.
+	 *
+	 * @return void
+	 */
 	private function initialize($query, $parameters = "")
 	{
 		if (!$this->isConnected) {
 			$this->connect();
 		}
+
 		try {
+
 			$this->parameters = $parameters;
-			$this->query     = $this->instance->prepare($this->assertParams($query, $this->parameters));
+			$this->query = $this->instance->prepare($this->assertParams($query, $this->parameters));
 
 			if (!empty($this->parameters)) {
 				if (array_key_exists(0, $parameters)) {
@@ -105,15 +127,23 @@ class PDO
 
 			$this->succes = $this->query->execute();
 			$this->querycount++;
-		}
-		catch (PDOException $e) {
-			echo $this->exceptionMessage($e->getMessage(), $this->assertParams($query));
-			die();
+
+		} catch (\PDOException $e) {
+			throw new DatabaseErrorException(
+				$this->exceptionMessage($e->getMessage(), $this->assertParams($query))
+				, StatusCode::HTTP_INTERNAL_ERROR);
 		}
 
 		$this->parameters = array();
 	}
 
+	/**
+	 * Assert query parameters.
+	 *
+	 * @param string $query
+	 * @param array $params
+	 * @return string
+	 */
 	private function assertParams($query, $params = null)
 	{
 		if (!empty($params)) {
@@ -127,9 +157,17 @@ class PDO
 		return $query;
 	}
 
+	/**
+	 * Parse and execute query.
+	 *
+	 * @param string $query
+	 * @param array $params
+	 * @param string $fetchmode Do not change this
+	 * @return string
+	 */
 	public function query($query, $params = null, $fetchmode = \PDO::FETCH_ASSOC)
 	{
-		$query        = trim($query);
+		$query = trim($query);
 		$rawStatement = explode(" ", $query);
 		$this->initialize($query, $params);
 		$statement = strtolower($rawStatement[0]);
@@ -142,24 +180,24 @@ class PDO
 		}
 	}
 
-
+	/**
+	 * Get last inserted id.
+	 *
+	 * @return int
+	 */
 	public function lastInsertId()
 	{
 		return $this->instance->lastInsertId();
 	}
 
-
-	public function column($query, $params = null)
-	{
-		$this->initialize($query, $params);
-		$resultColumn = $this->query->fetchAll(\PDO::FETCH_COLUMN);
-		$this->rowCount = $this->query->rowCount();
-		$this->columnCount = $this->query->columnCount();
-		$this->query->closeCursor();
-		return $resultColumn;
-	}
-
-
+	/**
+	 * Return only one result.
+	 *
+	 * @param string $query
+	 * @param array $params
+	 * @param string $fetchmode Do not change this
+	 * @return string
+	 */
 	public function row($query, $params = null, $fetchmode = \PDO::FETCH_ASSOC)
 	{
 		$this->initialize($query, $params);
@@ -170,26 +208,19 @@ class PDO
 		return $resultRow;
 	}
 
-
-	public function single($query, $params = null)
-	{
-		$this->initialize($query, $params);
-		return $this->query->fetchColumn();
-	}
-
-
+	/**
+	 * Generate string with erros of execution of this query.
+	 *
+	 * @param string $messafge
+	 * @param string $sql
+	 * @return string
+	 */
 	private function exceptionMessage($message, $sql = "")
 	{
-		$exception = 'Unhandled Exception. <br />';
-		$exception .= $message;
-		$exception .= "<br /> You can find the error back in the log.";
-
 		if (!empty($sql)) {
 			$message .= "\r\nRaw SQL : " . $sql;
 		}
 
-		header("HTTP/1.1 500 Internal Server Error");
-		header("Status: 500 Internal Server Error");
-		return $exception;
+		return $message;
 	}
 }
