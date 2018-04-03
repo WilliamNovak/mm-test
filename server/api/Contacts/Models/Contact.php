@@ -15,7 +15,7 @@ class Contact extends ORM {
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'mobile', 'address'
+        'id', 'name', 'email', 'mobile', 'address', 'user_id'
     ];
     /**
      * @var array
@@ -37,5 +37,11 @@ class Contact extends ORM {
     {
         //
     }
+    
+    //
+    // public function user()
+    // {
+    //     return new MadeiraMadeira\Application\Authentication\Models\User;
+    // }
 
 }

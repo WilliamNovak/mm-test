@@ -155,6 +155,7 @@ class ORM extends Database implements OrmInterface {
      */
     public function get()
     {
+        $this->fix();
         $this->formatQuery();
         $queryResult = $this->database->query($this->sql);
         $this->clearSql();
@@ -168,6 +169,7 @@ class ORM extends Database implements OrmInterface {
      */
     public function first()
     {
+        $this->fix();
         $this->formatQuery();
         $queryResult = $this->database->row($this->sql);
         $this->clearSql();
@@ -214,6 +216,7 @@ class ORM extends Database implements OrmInterface {
      */
     public function create($data = [])
     {
+        $this->fix();
         /**
          * NOTE This is to mapping just fillable columns.
          */
@@ -261,7 +264,7 @@ class ORM extends Database implements OrmInterface {
      */
     public function update($index = 0, $params = [])
     {
-
+        $this->fix();
         $parameters = [];
         foreach($params as $column => $value) {
             if ($value === null) {
@@ -294,6 +297,7 @@ class ORM extends Database implements OrmInterface {
      */
     public function delete($index = 0)
     {
+        $this->fix();
         $this->sql = "DELETE FROM {$this->table} WHERE {$this->pk} = {$index};";
         // $this->where($this->pk, '=', $index);
         $this->formatQuery();
@@ -313,12 +317,19 @@ class ORM extends Database implements OrmInterface {
      */
     public function execute($sql = null)
     {
+        $this->fix();
         $this->sql = "DELETE FROM {$this->table} WHERE {$this->pk} = {$index};";
         $this->formatQuery();
         $result = $this->database->query($this->sql);
         // Clear sql query.
         $this->clearSql();
         return $result;
+    }
+
+    private function fix()
+    {
+        $database = new Database;
+        $this->database = $database->newInstance();
     }
 
 }

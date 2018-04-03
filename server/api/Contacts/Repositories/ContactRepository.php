@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Contacts\Repositories;
-use MadeiraMadeira\Application\Authentication\Models\Contact;
+use Api\Contacts\Models\Contact;
 
 /**
  * Contact Repository.
