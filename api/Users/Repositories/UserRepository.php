@@ -74,4 +74,14 @@ class UserRepository {
         return $this->user->update($userId, $data);
     }
 
+    /**
+     * Delete user by id.
+     * @param int $userId
+     * @return array
+     */
+    public function delete($userId = 0)
+    {
+        return $this->user->delete($userId);
+    }
+
 }

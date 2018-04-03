@@ -3,7 +3,7 @@
 namespace Database\Interfaces;
 use Database\Database;
 
-interface ModelInterface {
+interface OrmInterface {
 
     /**
      * Only public methods.
@@ -15,5 +15,8 @@ interface ModelInterface {
     public function get();
     public function first();
     public function rawSql();
+    public function create($data);
+    public function update($index, $params);
+    public function delete();
 
 }

@@ -1,13 +1,13 @@
 <?php
 
 namespace Database;
-use Database\Interfaces\ModelInterface;
+use Database\Interfaces\OrmInterface;
 use Database\Database;
 
 /**
  * Database class.
  * This class extends Database\Database class.
- * This class implements Database\Interfaces\ModelInterface.
+ * This class implements Database\Interfaces\OrmInterface.
  * This class is my custom ORM.
  * TODO create another class or function to put funcitons to mount SQL Query, like Laravel Eloquent, Critéria etc.
  * TODO create way to genereta SQL for all databases, including NOSQL databases.
@@ -15,7 +15,7 @@ use Database\Database;
  * TODO INTEGRADE PDO TO THIS CLASS AND ADD `BIND PARAMETERS METHOD` (IS BETTER).
  * @author William Novak <williamnvk@gmail.com>
  */
-class ORM extends Database implements ModelInterface {
+class ORM extends Database implements OrmInterface {
 
     /**
      * @var object
@@ -188,7 +188,7 @@ class ORM extends Database implements ModelInterface {
      * @param array $data
      * @return array
      */
-    public function create($data)
+    public function create($data = [])
     {
         /**
          * NOTE This is to mapping just fillable columns.
@@ -216,17 +216,23 @@ class ORM extends Database implements ModelInterface {
         $mapedParameters = str_replace('\'null\'', 'NULL', $mapedParameters);
 
         $this->sql = "INSERT INTO {$this->table} ({$mapedColumns}) VALUES ({$mapedParameters});";
-        // $this->rawSql();
         $this->formatQuery();
-        return $this->database->query($this->sql);
+        // $this->rawSql();
+        // Execute query.
+        $created = $this->database->query($this->sql);
+        // Get Last id.
+        $lastId = $this->database->lastInsertId();
+        // Get one by last id.
+        return $this->select()->where($this->pk, '=', $lastId)->first();
     }
 
     /**
-     * Make `insert into {$table} ({$column}) VALUES ({$values})`.
-     * @param array $data
+     * Make `update {$table} set {$column} where {$index}`.
+     * @param string $index
+     * @param array $params
      * @return array
      */
-    public function update($index, $params = [])
+    public function update($index = 0, $params = [])
     {
 
         $parameters = [];
@@ -243,8 +249,22 @@ class ORM extends Database implements ModelInterface {
 
         $this->sql = "UPDATE {$this->table} AS {$this->alias} SET {$mapedColumns}";
         $this->where($this->pk, '=', $index);
-        $this->rawSql();
         $this->formatQuery();
+        // $this->rawSql();
+        return $this->database->query($this->sql);
+    }
+
+    /**
+     * Make `DELTE FROM {$table} WHERE {$index}`.
+     * @param string $index
+     * @return array
+     */
+    public function delete($index = 0)
+    {
+        $this->sql = "DELETE FROM {$this->table} WHERE {$this->pk} = {$index};";
+        // $this->where($this->pk, '=', $index);
+        $this->formatQuery();
+        // $this->rawSql();
         return $this->database->query($this->sql);
     }
 

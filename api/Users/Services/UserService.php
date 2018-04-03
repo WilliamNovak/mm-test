@@ -80,15 +80,26 @@ class UserService {
     }
 
     /**
-     * Get user by id.
+     * Update user by id.
      * @param int $userId
      * @param array $data
      * @return array
      */
     public function update($userId, $data = [])
     {
-        $user = $this->userRepository->getById($userId);
+        $this->getRequestedUser($userId);
         return $this->userRepository->update($userId, $data);
+    }
+
+    /**
+     * Delete user by id.
+     * @param int $userId
+     * @return array
+     */
+    public function delete($userId)
+    {
+        $this->getRequestedUser($userId);
+        return $this->userRepository->delete($userId);
     }
 
 }
