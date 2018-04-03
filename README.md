@@ -15,6 +15,7 @@ Test of knowledge in programming for the company Madeira Madeira.
 - API written in PHP without using a framework.
 - PDO (PHP Data Objects) for data abstraction.
 - Conceptually created on top of the Laravel Framework in order to maintain and follow the pattern of development on top of a large scale commercial framework.
+- Use NGINX server.
 
 ### Run
 
@@ -22,16 +23,16 @@ Test of knowledge in programming for the company Madeira Madeira.
 cd /var/www
 git clone https://github.com/WilliamNovak/mm-test mm
 ```
-**Create vhost**
+**Create virtual host:**
 ```
 sudo vi /etc/hosts
 ```
-Add the following data
+Add the following data:
 ```
 127.0.0.1      madeira.williamnvk.server
 127.0.0.1      madeira.williamnvk.client
 ```
-Create a file `madeira.williamnvk.dev.conf` and put the following content on `/etc/nginx/sites-available/`
+Create a file `madeira.williamnvk.dev.conf` and put the following content on `/etc/nginx/sites-available/`.
 ```
 server {
     listen       80;
@@ -60,25 +61,25 @@ server {
 }
 
 ```
-And run this command
+And run this command and restart NGINX.
 ```
 sudo ln -s /etc/nginx/sites-available/madeira.williamnvk.dev.conf /etc/nginx/sites-enabled/
 ```
 
-**Create database***
+**Create database**
 ```
 mysql -u${USER} -p source /var/www/mm/server/database/dumps/schema.sql
 * enter your password*
 exit;
 ```
 
-**Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server**
+Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server.
 
-### Yeah! Let's go test it!!!**
+### Yeah! Let's go test it!!!
 
 ### Extra
 
-- Import file `docs/postman_collection_v2.json` on `POSTMAN` to see all routes and the API requisitions without front end.
+Import file `docs/postman_collection_v2.json` on `POSTMAN` to see all routes and the API requisitions without front end.
 
 ### The last release
 
