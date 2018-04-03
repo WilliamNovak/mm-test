@@ -1,6 +1,12 @@
 <?php
 
 /**
+ *
+ * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
+ */
+ 
+/**
  * Define config dir.
  * Another solution is `define('CONFIG_DIR', ...);`
  *
