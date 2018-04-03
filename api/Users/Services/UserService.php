@@ -79,4 +79,16 @@ class UserService {
         return $this->userRepository->create($data);
     }
 
+    /**
+     * Get user by id.
+     * @param int $userId
+     * @param array $data
+     * @return array
+     */
+    public function update($userId, $data = [])
+    {
+        $user = $this->userRepository->getById($userId);
+        return $this->userRepository->update($userId, $data);
+    }
+
 }

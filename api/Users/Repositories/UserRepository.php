@@ -39,7 +39,7 @@ class UserRepository {
 
     /**
      * Get one user by id column.
-     *
+     * @param int $userId
      * @return array
      */
     public function getById($userId = 0)
@@ -59,22 +59,19 @@ class UserRepository {
      *
      * @return array
      */
-    public function getByEmail($email)
+    public function create($data = [])
     {
-        return $this->user
-            ->select()
-            ->where('id', '=', $userId)
-            ->first();
+        return $this->user->create($data);
     }
 
     /**
      * Get one user by id column.
-     *
+     * @param int $userId
      * @return array
      */
-    public function create($data = [])
+    public function update($userId, $data = [])
     {
-        return $this->user->create($data);
+        return $this->user->update($userId, $data);
     }
 
 }

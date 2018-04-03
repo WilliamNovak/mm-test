@@ -45,7 +45,7 @@ class UserController extends Controller {
 
     /**
      * Get one user by id.
-     *
+     * @param int $id
      * @return Response
      */
     public function getById($id)
@@ -67,6 +67,23 @@ class UserController extends Controller {
     {
         $data = $request->get('user');
         $user = $this->userService->create($data);
+
+        return Response::json([
+            'success' => true,
+            'user' => $user
+        ], StatusCode::HTTP_SUCCESS);
+    }
+
+    /**
+     * Get one user by id.
+     * @param int $id
+     * @param Request $request
+     * @return Response
+     */
+    public function update($id, Request $request)
+    {
+        $data = $request->get('user');
+        $user = $this->userService->update($id, $data);
 
         return Response::json([
             'success' => true,

@@ -12,7 +12,7 @@ use Database\Database;
  * TODO create another class or function to put funcitons to mount SQL Query, like Laravel Eloquent, Critéria etc.
  * TODO create way to genereta SQL for all databases, including NOSQL databases.
  * TODO create documentation of this.
- *
+ * TODO INTEGRADE PDO TO THIS CLASS AND ADD `BIND PARAMETERS METHOD` (IS BETTER).
  * @author William Novak <williamnvk@gmail.com>
  */
 class ORM extends Database implements ModelInterface {
@@ -72,6 +72,15 @@ class ORM extends Database implements ModelInterface {
             $this->table = strtolower($model_name).'s';
         } else {
             $this->table = $this->model->table.'s';
+        }
+
+        /**
+         * Get Primary Key attribute.
+         */
+        if ( !isset($this->model->pk)) {
+            $this->pk = 'id';
+        } else {
+            $this->pk = $this->model->pk;
         }
 
         /**
@@ -175,29 +184,27 @@ class ORM extends Database implements ModelInterface {
     }
 
     /**
-     * Make `where {$column} {$operator} {$value}`.
-     * NOTE Multiple 'where' clausules need be add AND operator.
-     * @param string $column
-     * @param string $operator
-     * @param mixed  $value
-     * @return Model
+     * Make `insert into {$table} ({$column}) VALUES ({$values})`.
+     * @param array $data
+     * @return array
      */
     public function create($data)
     {
-        $alias = $this->alias;
-        $table = $this->model->table;
         /**
-         * NOTE This is to mapping just fillable colums.
+         * NOTE This is to mapping just fillable columns.
          */
-        $columns = $this->model->fillable;
         $params = [];
-        foreach($columns as $column) {
+        foreach($this->model->fillable as $column) {
             /**
              * NOTE If the input data ($data) dont have a column informed on $fillable, the value is null. But...
              * TODO Needs to create a method do manage `required` and `not required` columns.
              */
             if (isset($data[$column])) {
-                $params[$column] = $data[$column];
+                /**
+                 * TODO Create `$casts` attribute on model.
+                 * TODO Read `$casts` and cast the value as equal.
+                 */
+                $params[$column] = (string) $data[$column];
             }
         }
         /**
@@ -208,8 +215,35 @@ class ORM extends Database implements ModelInterface {
         $mapedParameters = '\''.implode('\',', explode(',', implode(',\'', $params))).'\'';
         $mapedParameters = str_replace('\'null\'', 'NULL', $mapedParameters);
 
-        $this->sql = "INSERT INTO {$table} ({$mapedColumns}) VALUES ({$mapedParameters});";
+        $this->sql = "INSERT INTO {$this->table} ({$mapedColumns}) VALUES ({$mapedParameters});";
         // $this->rawSql();
+        $this->formatQuery();
+        return $this->database->query($this->sql);
+    }
+
+    /**
+     * Make `insert into {$table} ({$column}) VALUES ({$values})`.
+     * @param array $data
+     * @return array
+     */
+    public function update($index, $params = [])
+    {
+
+        $parameters = [];
+        foreach($params as $column => $value) {
+            if ($value === null) {
+                $parameters[] = "{$column}='null'";
+            } else {
+                $parameters[] = "{$column}='{$value}'";
+            }
+        }
+
+        $mapedColumns = "{$this->alias}." . implode(",{$this->alias}.", $parameters);
+        $mapedParameters = str_replace('\'null\'', 'NULL', $mapedColumns);
+
+        $this->sql = "UPDATE {$this->table} AS {$this->alias} SET {$mapedColumns}";
+        $this->where($this->pk, '=', $index);
+        $this->rawSql();
         $this->formatQuery();
         return $this->database->query($this->sql);
     }
