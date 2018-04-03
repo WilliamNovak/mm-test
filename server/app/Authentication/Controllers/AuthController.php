@@ -8,7 +8,6 @@ use MadeiraMadeira\Application\Http\Request;
 use MadeiraMadeira\Application\Http\StatusCode;
 use MadeiraMadeira\Application\Authentication\Services\AuthService;
 
-
 /**
  * User Controller.
  *
