@@ -8,6 +8,23 @@
 	},
 	"item": [
 		{
+			"name": "Welcome",
+			"request": {
+				"url": "localhost:8000/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
 			"name": "Register",
 			"request": {
 				"url": "localhost:8000/register",
@@ -71,7 +88,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\": {\n\t\t\"first_name\": \"william\",\n\t\t\"last_name\": \"novak\",\n\t\t\"email\": \"teste@teste.com\",\n\t\t\"password\": \"teste\"\n\t}\n}"
+					"raw": "{\n\t\"user\": {\n\t\t\"first_name\": \"william\",\n\t\t\"last_name\": \"novak\",\n\t\t\"email\": \"outro.teste@teste.com\",\n\t\t\"password\": \"teste\"\n\t}\n}"
 				},
 				"description": "Users"
 			},
