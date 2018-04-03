@@ -10,9 +10,9 @@ use MadeiraMadeira\Application\Http\StatusCode;
  * PDO custom class.
  * TODO crete whay to this methods is reutilizable on another drivers, with same names, parameter and returns.
  *
- * Modified and adapdated to this project.
- * William Novak <williamnvk@gmail.com> on 2018-04-02
- *
+ * Modified and adapdated to this project:
+ * @author William Novak <williamnvk@gmail.com> on 2018-04-02
+ * Source:
  * @author lincanbin <https://github.com/lincanbin/PHP-PDO-MySQL-Class/blob/master/src/PDO.class.php>
  */
 class PDO
@@ -106,11 +106,11 @@ class PDO
 		if (!$this->isConnected) {
 			$this->connect();
 		}
-		
+
 		try {
 
 			$this->parameters = $parameters;
-			$this->query     = $this->instance->prepare($this->assertParams($query, $this->parameters));
+			$this->query = $this->instance->prepare($this->assertParams($query, $this->parameters));
 
 			if (!empty($this->parameters)) {
 				if (array_key_exists(0, $parameters)) {
@@ -128,7 +128,7 @@ class PDO
 			$this->succes = $this->query->execute();
 			$this->querycount++;
 
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
 			throw new DatabaseErrorException(
 				$this->exceptionMessage($e->getMessage(), $this->assertParams($query))
 				, StatusCode::HTTP_INTERNAL_ERROR);
@@ -167,7 +167,7 @@ class PDO
 	 */
 	public function query($query, $params = null, $fetchmode = \PDO::FETCH_ASSOC)
 	{
-		$query        = trim($query);
+		$query = trim($query);
 		$rawStatement = explode(" ", $query);
 		$this->initialize($query, $params);
 		$statement = strtolower($rawStatement[0]);
@@ -217,14 +217,10 @@ class PDO
 	 */
 	private function exceptionMessage($message, $sql = "")
 	{
-		$exception = 'Unhandled Exception. <br />';
-		$exception .= $message;
-		$exception .= "<br /> You can find the error back in the log.";
-
 		if (!empty($sql)) {
 			$message .= "\r\nRaw SQL : " . $sql;
 		}
 
-		return $exception;
+		return $message;
 	}
 }
