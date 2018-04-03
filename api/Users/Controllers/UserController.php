@@ -8,6 +8,8 @@ use MadeiraMadeira\Application\Http\Request;
 use MadeiraMadeira\Application\Http\StatusCode;
 use Api\Users\Services\UserService;
 
+use MadeiraMadeira\Application\Authentication\Auth;
+
 /**
  * User Controller.
  *
@@ -20,12 +22,18 @@ class UserController extends Controller {
      */
     private $userService;
     /**
+     * @var Auth
+     */
+    private $auth;
+    /**
      * UserService constructor.
      */
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, Auth $auth)
     {
         parent::__construct();
         $this->userService = $userService;
+        $this->auth = $auth;
+        $this->auth->authorize();
     }
 
     /**
@@ -67,7 +75,7 @@ class UserController extends Controller {
     {
         $data = $request->get('user');
         $user = $this->userService->create($data);
-        
+
         return Response::json([
             'success' => true,
             'user' => $user

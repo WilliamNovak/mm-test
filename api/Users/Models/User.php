@@ -13,7 +13,7 @@ class User extends ORM {
     /**
      * @var string
      */
-    
+
     /**
      * @var array
      */
@@ -34,6 +34,11 @@ class User extends ORM {
     {
         parent::__construct();
         parent::setModel($this);
+    }
+
+    public function toObject($data)
+    {
+        //
     }
 
 }

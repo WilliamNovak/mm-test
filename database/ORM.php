@@ -208,8 +208,8 @@ class ORM extends Database implements OrmInterface {
             }
         }
         /**
-         * NOTE Getting only filled columns.
-         * NOTE Its possible to crash a funcion if column on database is `not null` and here value is null.
+         * NOTE Getting only fillable columns.
+         * NOTE Its possible to crash a funcion if column on database is `not null` and here value `is null`.
          */
         $mapedColumns = implode(',', array_keys($params));
         $mapedParameters = '\''.implode('\',', explode(',', implode(',\'', $params))).'\'';
@@ -220,6 +220,8 @@ class ORM extends Database implements OrmInterface {
         // $this->rawSql();
         // Execute query.
         $created = $this->database->query($this->sql);
+        // Clear sql query.
+        $this->clearSql();
         // Get Last id.
         $lastId = $this->database->lastInsertId();
         // Get one by last id.
@@ -251,7 +253,12 @@ class ORM extends Database implements OrmInterface {
         $this->where($this->pk, '=', $index);
         $this->formatQuery();
         // $this->rawSql();
-        return $this->database->query($this->sql);
+        $result = $this->database->query($this->sql);
+        // Clear sql query.
+        $this->clearSql();
+
+        return $result;
+
     }
 
     /**
@@ -265,7 +272,26 @@ class ORM extends Database implements OrmInterface {
         // $this->where($this->pk, '=', $index);
         $this->formatQuery();
         // $this->rawSql();
-        return $this->database->query($this->sql);
+        $result = $this->database->query($this->sql);
+        // Clear sql query.
+        $this->clearSql();
+
+        return $result;
+    }
+
+    /**
+     * Make `DELTE FROM {$table} WHERE {$index}`.
+     * @param string $index
+     * @return array
+     */
+    public function execute($sql = null)
+    {
+        $this->sql = "DELETE FROM {$this->table} WHERE {$this->pk} = {$index};";
+        $this->formatQuery();
+        $result = $this->database->query($this->sql);
+        // Clear sql query.
+        $this->clearSql();
+        return $result;
     }
 
 }
