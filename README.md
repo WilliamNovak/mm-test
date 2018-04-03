@@ -22,16 +22,16 @@ Test of knowledge in programming for the company Madeira Madeira.
 cd /var/www
 git clone https://github.com/WilliamNovak/mm-test mm
 ```
-**Create vhost**
+**Create virtual host:**
 ```
 sudo vi /etc/hosts
 ```
-Add the following data
+Add the following data:
 ```
 127.0.0.1      madeira.williamnvk.server
 127.0.0.1      madeira.williamnvk.client
 ```
-Create a file `madeira.williamnvk.dev.conf` and put the following content on `/etc/nginx/sites-available/`
+Create a file `madeira.williamnvk.dev.conf` and put the following content on `/etc/nginx/sites-available/`.
 ```
 server {
     listen       80;
@@ -60,7 +60,7 @@ server {
 }
 
 ```
-And run this command
+And run this command:
 ```
 sudo ln -s /etc/nginx/sites-available/madeira.williamnvk.dev.conf /etc/nginx/sites-enabled/
 ```
@@ -72,7 +72,7 @@ mysql -u${USER} -p source /var/www/mm/server/database/dumps/schema.sql
 exit;
 ```
 
-Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server
+Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server.
 
 ### Yeah! Let's go test it!!!
 
