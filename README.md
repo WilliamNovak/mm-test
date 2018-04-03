@@ -65,20 +65,20 @@ And run this command
 sudo ln -s /etc/nginx/sites-available/madeira.williamnvk.dev.conf /etc/nginx/sites-enabled/
 ```
 
-**Create database***
+**Create database**
 ```
 mysql -u${USER} -p source /var/www/mm/server/database/dumps/schema.sql
 * enter your password*
 exit;
 ```
 
-**Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server**
+Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server
 
 ### Yeah! Let's go test it!!!**
 
 ### Extra
 
-- Import file `docs/postman_collection_v2.json` on `POSTMAN` to see all routes and the API requisitions without front end.
+Import file `docs/postman_collection_v2.json` on `POSTMAN` to see all routes and the API requisitions without front end.
 
 ### The last release
 
