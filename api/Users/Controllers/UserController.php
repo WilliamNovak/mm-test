@@ -33,7 +33,6 @@ class UserController extends Controller {
         parent::__construct();
         $this->userService = $userService;
         $this->auth = $auth;
-        $this->auth->authorize();
     }
 
     /**

@@ -121,11 +121,21 @@ class ORM extends Database implements OrmInterface {
      */
     public function where($column, $operator = '=', $value)
     {
+
+        if (!preg_match('/\bSELECT\b/', $this->sql)) {
+            $this->select();
+        }
+
         if (preg_match('/\bWHERE\b/', $this->sql)) {
             $this->sql .= " AND ";
         } else {
             $this->sql .= " WHERE ";
         }
+
+        if (gettype($value) === 'string') {
+            $value = "'{$value}'";
+        }
+
         $this->sql .= "{$this->alias}.{$column} {$operator} {$value} ";
         return $this;
     }

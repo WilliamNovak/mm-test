@@ -22,17 +22,20 @@ class Auth {
     private $accessData = false;
 
     /**
-     * ...
+     * Auth trait.
      */
     public function __construct(User $user)
     {
         $this->user = $user;
+        $this->authorize();
     }
 
     /**
-     * ...
+     *
+     *
+     * @return void
      */
-    public function authorize()
+    private function authorize()
     {
         $email = null;
         $password = null;
@@ -47,14 +50,10 @@ class Auth {
             $password = $_SERVER['PHP_AUTH_PW'];
             $mod = 'PHP_AUTH_USER';
         } elseif ( isset( $_SERVER['HTTP_AUTHORIZATION'] ) ) {
-
-
             if ( preg_match( '/^basic/i', $_SERVER['HTTP_AUTHORIZATION'] ) ) {
                 list($email, $password) = explode( ':', base64_decode( substr( $_SERVER['HTTP_AUTHORIZATION'], 6 ) ) );
             }
-
             $mod = 'HTTP_AUTHORIZATION';
-
         }
 
         if ( is_null($email) || $mod === null ) {
@@ -71,12 +70,16 @@ class Auth {
          * Find user by e-mail.
          */
         $user = $this->user->select()->where('email', '=', "'{$email}'")->first();
+
+        /**
+         * If user not found, throw new exception.
+         */
         if (is_null($user)) {
             throw new AuthFailureException("invalid user or user not found.");
         }
 
         /**
-         * If password dont math.
+         * If password dont math, throw new exception.
          */
         if ($user['password'] !== md5($password)){
             throw new AuthFailureException("invalid password.");

@@ -34,7 +34,7 @@ class UserRepository {
      */
     public function getAll()
     {
-        return $this->user->select()->get();
+        return $this->user->get();
     }
 
     /**
@@ -44,14 +44,7 @@ class UserRepository {
      */
     public function getById($userId = 0)
     {
-        return $this->user
-            ->select()
-            ->where('id', '=', $userId)
-            # Just to test my custom ORM.
-            ->where('id', '>', 0)
-            # This terminate this process.
-            # ->rawSql()
-            ->first();
+        return $this->user->where('id', '=', $userId)->first();
     }
 
     /**
@@ -82,6 +75,20 @@ class UserRepository {
     public function delete($userId = 0)
     {
         return $this->user->delete($userId);
+    }
+
+    /**
+     * Get one user by id column.
+     * @param int $userId
+     * @return array
+     */
+    public function getUserByEmail($userEmail = null)
+    {
+        if (is_null($userEmail)) {
+            return false;
+        }
+
+        return $this->user->where('email', '=', $userEmail)->first();
     }
 
 }
