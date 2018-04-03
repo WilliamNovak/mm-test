@@ -6,6 +6,7 @@ namespace MadeiraMadeira\Application\Exceptions;
  * Custom Exception Interface.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 interface CustomExceptionInterface
 {

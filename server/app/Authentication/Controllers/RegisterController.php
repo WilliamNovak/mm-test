@@ -9,9 +9,10 @@ use MadeiraMadeira\Application\Http\StatusCode;
 use MadeiraMadeira\Application\Authentication\Services\RegisterService;
 
 /**
- * Register User Controller.
+ * Register Controller.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class RegisterController extends Controller {
 

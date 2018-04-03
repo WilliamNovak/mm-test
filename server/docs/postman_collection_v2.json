@@ -1,0 +1,178 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MM",
+		"_postman_id": "40313caa-e0df-b80f-11b9-0852ae0fa0ab",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"url": "localhost:8000/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"email\": \"williamnvk@gmail.com\",\n\t\t\"password\": \"teste\",\n\t\t\"first_name\": \"william\",\n\t\t\"last_name\": \"novak\"\n\t}\n}"
+				},
+				"description": "Refuse order"
+			},
+			"response": []
+		},
+		{
+			"name": "Check e-mail",
+			"request": {
+				"url": "localhost:8000/check/email",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"williamnvk@gmail.com\"\n}"
+				},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"url": "localhost:8000/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"first_name\": \"william\",\n\t\t\"last_name\": \"novak\",\n\t\t\"email\": \"teste@teste.com\",\n\t\t\"password\": \"teste\"\n\t}\n}"
+				},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"url": "localhost:8000/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by id",
+			"request": {
+				"url": "localhost:8000/users/4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"first_name\": \"outro teste\",\n\t\t\"last_name\": \"teste\"\n\t}\n}"
+				},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Update user by id",
+			"request": {
+				"url": "localhost:8000/users/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"first_name\": \"outro teste\",\n\t\t\"last_name\": \"teste\",\n\t\t\"is_active\": 0\n\t}\n}"
+				},
+				"description": "Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user by id",
+			"request": {
+				"url": "localhost:8000/users/3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic d2lsbGlhbW52a0BnbWFpbC5jb206dGVzdGU=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Users"
+			},
+			"response": []
+		}
+	]
+}

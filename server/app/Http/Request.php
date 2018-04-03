@@ -6,7 +6,8 @@ use MadeiraMadeira\Application\Exceptions\InvalidRequestException;
 /**
  * Http Request Class.
  *
- * @author William Novak <williamnvk@gmail.com>
+* @author William Novak <williamnvk@gmail.com>
+
  * @method public get()
  */
 class Request {

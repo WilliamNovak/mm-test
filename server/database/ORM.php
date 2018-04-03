@@ -14,8 +14,9 @@ use Database\Database;
  * TODO create way to genereta SQL for all databases, including NOSQL databases.
  * TODO create documentation of this.
  * TODO INTEGRATE PDO TO THIS CLASS AND ADD `BIND PARAMETERS METHOD` (IS BETTER THAN THIS).
-  *
+ *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class ORM extends Database implements OrmInterface {
 
@@ -227,7 +228,7 @@ class ORM extends Database implements OrmInterface {
                  * TODO Create `$casts` attribute on model.
                  * TODO Read `$casts` and cast the value as equal.
                  */
-                $params[$column] = (string) $data[$column];
+                $params[$column] = (string) escape($data[$column]);
             }
         }
         /**

@@ -14,6 +14,7 @@ use MadeiraMadeira\Application\Authentication\Auth;
  * User Controller.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class UserController extends Controller {
 
@@ -91,7 +92,7 @@ class UserController extends Controller {
     {
         $data = $request->get('user');
         $user = $this->userService->update($id, $data);
-        
+
         return Response::json([
             'success' => true,
             'user' => $user

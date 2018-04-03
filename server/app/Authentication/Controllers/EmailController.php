@@ -12,6 +12,7 @@ use MadeiraMadeira\Application\Authentication\Services\EmailService;
  * Email Controller.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  * @method check(string $email)
  */
 class EmailController extends Controller {

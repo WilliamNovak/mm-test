@@ -6,9 +6,10 @@ use MadeiraMadeira\Application\Http\Response;
 use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
- * Auth Service
+ * Register Service.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class RegisterService {
 
@@ -50,6 +51,15 @@ class RegisterService {
 
         $data['email'] = strtolower(trim($data['email']));
         $data['password'] = md5($data['password']);
+
+        /**
+         * Force user registered outside application, to NO ADMIN role.
+         */
+        $data['is_admin'] = false;
+        /**
+         * Force user is active.
+         */
+        $data['is_active'] = true;
 
         /**
          * Unique e-mail constraint level check.

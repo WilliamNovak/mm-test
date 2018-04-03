@@ -14,6 +14,7 @@ use MadeiraMadeira\Application\Http\StatusCode;
  * @author William Novak <williamnvk@gmail.com> on 2018-04-02
  * Source:
  * @author lincanbin <https://github.com/lincanbin/PHP-PDO-MySQL-Class/blob/master/src/PDO.class.php>
+ * @package MadeiraMadeira
  */
 class PDO
 {

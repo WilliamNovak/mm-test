@@ -9,6 +9,7 @@ use MadeiraMadeira\Application\Authentication\Services\EmailService;
  * User Service
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class UserService {
 

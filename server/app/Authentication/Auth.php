@@ -9,6 +9,7 @@ use MadeiraMadeira\Application\Authentication\Models\User;
  * Authentication Trait.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class Auth {
 
@@ -83,6 +84,13 @@ class Auth {
          */
         if ($user['password'] !== md5($password)) {
             throw new AuthFailureException("invalid password.");
+        }
+
+        /**
+         * If password dont math, throw new exception.
+         */
+        if ($user['is_active'] == false) {
+            throw new AuthFailureException("user disabled.");
         }
 
         $this->store($user);

@@ -7,6 +7,7 @@ use MadeiraMadeira\Application\Authentication\Models\User;
  * User Repository.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class UserRepository {
 

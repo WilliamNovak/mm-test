@@ -6,9 +6,10 @@ use MadeiraMadeira\Application\Http\Response;
 use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
- * Auth Service
+ * Auth Service.
  *
  * @author William Novak <williamnvk@gmail.com>
+ * @package MadeiraMadeira
  */
 class AuthService {
 
@@ -36,14 +37,21 @@ class AuthService {
         if (empty($user)) {
             return Response::json([
                 'success' => false,
-                'user' => 'user not found'
+                'user' => 'user not found.'
             ], StatusCode::HTTP_NOT_FOUND);
         }
 
         if ($user['password'] !== md5($data['password'])) {
             return Response::json([
                 'success' => false,
-                'user' => 'invalid password'
+                'user' => 'invalid password.'
+            ], StatusCode::HTTP_BAD_REQUEST);
+        }
+
+        if ($user['is_active'] == false) {
+            return Response::json([
+                'success' => false,
+                'user' => 'user disabled.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
