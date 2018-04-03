@@ -34,7 +34,7 @@ class UserRepository {
      */
     public function getAll()
     {
-        return $this->user->get();
+        return $this->user->select()->get();
     }
 
     /**

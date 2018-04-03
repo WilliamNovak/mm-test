@@ -10,7 +10,7 @@ use MadeiraMadeira\Application\Http\StatusCode;
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class RegisterService {
+class EmailService {
 
     /**
      * @var UserRepository
@@ -25,36 +25,29 @@ class RegisterService {
     }
 
     /**
-     * Create new user.
-     * @param array $data
+     * Check e-mail service.
+     *
+     * @param string $email
      * @return array
      */
-    public function register($data = [])
+    public function check($email = null)
     {
-        /**
-         * Custom validators.
-         */
-        if ( !isset($data['email']) || !isset($data['first_name']) || !isset($data['last_name']) || !isset($data['password']) ) {
-            return Response::json([
-                'success' => false,
-                'user' => 'email, first name, last name or password not informed.'
-            ], StatusCode::HTTP_BAD_REQUEST);
-        }
+        $email = strtolower(trim($email));
 
-        if ( !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        /**
+         * Valida e-mail string.
+         */
+        if ( !filter_var($email, FILTER_VALIDATE_EMAIL) ) {
             return Response::json([
                 'success' => false,
                 'user' => 'invalid e-mail.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
-        $data['email'] = strtolower(trim($data['email']));
-        $data['password'] = md5($data['password']);
-
         /**
          * Unique e-mail constraint level check.
          */
-        $user = $this->userRepository->getUserByEmail($data['email']);
+        $user = $this->userRepository->getUserByEmail($email);
 
         if (!empty($user)) {
             return Response::json([
@@ -63,9 +56,7 @@ class RegisterService {
             ], StatusCode::HTTP_NOT_FOUND);
         }
 
-
-
-        return $this->userRepository->create($data);
+        return true;
 
     }
 

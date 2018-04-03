@@ -9,6 +9,11 @@ return [
         'path' => '/register',
         'controller' => ['MadeiraMadeira\Application\Authentication\Controllers\RegisterController', 'register']
     ],
+    'check_email' => [
+        'method' => 'POST',
+        'path' => '/check/email',
+        'controller' => ['MadeiraMadeira\Application\Authentication\Controllers\EmailController', 'check']
+    ],
     /**
      * Auth Routes.
      */
