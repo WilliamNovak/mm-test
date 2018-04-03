@@ -74,7 +74,7 @@ class UserService {
      * @param array $data
      * @return array
      */
-    public function create($data)
+    public function create($data = [])
     {
         return $this->userRepository->create($data);
     }

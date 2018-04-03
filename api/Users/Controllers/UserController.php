@@ -60,7 +60,7 @@ class UserController extends Controller {
 
     /**
      * Create user.
-     *
+     * @param Request $request
      * @return Response
      */
     public function create(Request $request)

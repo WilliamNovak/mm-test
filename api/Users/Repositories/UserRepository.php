@@ -72,12 +72,9 @@ class UserRepository {
      *
      * @return array
      */
-    public function create($data)
+    public function create($data = [])
     {
-        return $this->user
-            ->select()
-            ->where('id', '=', $userId)
-            ->first();
+        return $this->user->create($data);
     }
 
 }

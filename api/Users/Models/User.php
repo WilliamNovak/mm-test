@@ -1,19 +1,19 @@
 <?php
 
 namespace Api\Users\Models;
-use Database\Model;
+use Database\ORM;
 
 /**
  * User Model.
  *
  * @author William Novak <williamnvk@gmail.com>
  */
-class User extends Model {
+class User extends ORM {
 
     /**
      * @var string
      */
-    public $table = 'users';
+    
     /**
      * @var array
      */
