@@ -1,18 +1,28 @@
 <?php
 
 namespace MadeiraMadeira\Application\Http;
+use MadeiraMadeira\Application\Http\Response;
+use MadeiraMadeira\Application\Http\StatusCode;
 
 /**
- * Application Controller Class.
+ * Index Class.
  *
  * @author William Novak <williamnvk@gmail.com>
  * @package MadeiraMadeira
  */
-abstract class Controller {
+class Index {
 
     public function __construct()
     {
 
+    }
+
+    public function index()
+    {
+        return Response::json([
+            'success' => true,
+            'message' => 'Welcome to Madeira Madeira REST API v1 :)'
+        ], StatusCode::HTTP_SUCCESS);
     }
 
     /**
