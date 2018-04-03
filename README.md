@@ -15,6 +15,7 @@ Test of knowledge in programming for the company Madeira Madeira.
 - API written in PHP without using a framework.
 - PDO (PHP Data Objects) for data abstraction.
 - Conceptually created on top of the Laravel Framework in order to maintain and follow the pattern of development on top of a large scale commercial framework.
+- Use NGINX server.
 
 ### Run
 
@@ -60,7 +61,7 @@ server {
 }
 
 ```
-And run this command:
+And run this command and restart NGINX.
 ```
 sudo ln -s /etc/nginx/sites-available/madeira.williamnvk.dev.conf /etc/nginx/sites-enabled/
 ```
