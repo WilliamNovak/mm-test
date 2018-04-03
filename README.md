@@ -74,7 +74,7 @@ exit;
 
 Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server
 
-### Yeah! Let's go test it!!!**
+### Yeah! Let's go test it!!!
 
 ### Extra
 
