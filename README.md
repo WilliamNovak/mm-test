@@ -10,6 +10,8 @@
 
 Test of knowledge in programming for the company Madeira Madeira.
 
+Access [**API GUIDE**](https://documenter.getpostman.com/view/538667/mm/RVu2mqJi) to view all endpoints of application.
+
 **`CLIENT SIDE IN DEVELOPMENT`**.
 
 ### Features
