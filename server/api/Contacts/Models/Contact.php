@@ -15,13 +15,13 @@ class Contact extends ORM {
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'mobile', 'address', 'user_id'
+        'id', 'name', 'email', 'mobile', 'address', 'user_id', 'updated_at'
     ];
     /**
      * @var array
      */
     protected $hidden = [
-        'id', 'created_at', 'updated_at'
+        'id', 'created_at'
     ];
 
     /**
@@ -37,7 +37,7 @@ class Contact extends ORM {
     {
         //
     }
-    
+
     //
     // public function user()
     // {

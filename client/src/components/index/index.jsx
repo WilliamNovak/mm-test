@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUserContacts } from './actions/'
 
+import Contact from './contactComponent'
+
 const section = (props) => (
     <div className="container">
         <div className="row">
@@ -75,20 +77,14 @@ class Index extends Component {
                         ?
                             (
                                 <div className="row">
-                                    <div className="col-md-6 col-xs-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Your booklist</h5>
-
-                                                    <div class="card">
-                                                        <div class="card-body">
-
-                                                        </div>
-                                                    </div>
-
-                                            </div>
+                                    <div className="col-md-12 col-xs-12">
+                                        <div className="card-columns">
+                                            {userContacts.map(
+                                                contact => <Contact
+                                                key={'user-contact-id-' + contact.id}
+                                                {...contact} />
+                                            )}
                                         </div>
-
                                     </div>
                                 </div>
                             )
