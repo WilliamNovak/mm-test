@@ -10,6 +10,8 @@
 
 Test of knowledge in programming for the company Madeira Madeira.
 
+## `Attention` CLIENT SIDE IN DEVELOPEMENT.
+
 ### Features
 
 - API written in PHP without using a framework.
@@ -50,8 +52,9 @@ server {
 }
 
 server {
-    server_name madeira.williamnvk.client;
-    root /var/www/mm/client/build;
+    listen       80;
+    server_name  madeira.williamnvk.client;
+    root         /var/www/mm/client/build;
 
     location / {
         try_files $uri /index.html;

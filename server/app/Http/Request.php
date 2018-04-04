@@ -29,15 +29,21 @@ class Request {
     {
         $postData = json_decode(file_get_contents('php://input'), true);
 
-        if ( is_null($key) || !array_key_exists($key, $postData) ) {
-            throw new InvalidRequestException("Invalid post data or key not found on inputed vars.");
+        if (!is_null($postData)) {
+
+            if ( is_null($key) || !array_key_exists($key, $postData) ) {
+                throw new InvalidRequestException("Invalid post data or key not found on inputed vars.");
+            }
+
+            if ( !is_null($key) && array_key_exists($key, $postData) ) {
+                return $postData[$key];
+            }
+
+            return $postData;
         }
 
-        if ( !is_null($key) && array_key_exists($key, $postData) ) {
-            return $postData[$key];
-        }
+        return null;
 
-        return $postData;
     }
 
 }
