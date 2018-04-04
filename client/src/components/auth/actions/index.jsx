@@ -17,24 +17,16 @@ export const setUser = (user = false) => ({type: 'USER_FETCHED', payload: user})
 
 export const signIn = (payload) => {
     return dispatch => {
-
-        axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.post['Accept'] = 'application/json';
-axios.defaults.transformRequest = [(data) => JSON.stringify(data.data)];
-
-        axios(
-            {
-                url: `${consts.API_URL}/auth/authorize`,
-                method: 'post',
-                data: {
-                    auth: payload
-                },
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
+        axios({
+            url: `${consts.API_URL}/auth/authorize`,
+            method: 'post',
+            data: {
+                auth: payload
+            },
+            headers: {
+                'Content-Type': 'application/json'
             }
-        ).then(
+        }).then(
             resp => {
                 dispatch(setUser(resp.data.user))
             }
