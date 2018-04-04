@@ -38,14 +38,14 @@ class RegisterService {
         if ( !isset($data['email']) || !isset($data['first_name']) || !isset($data['last_name']) || !isset($data['password']) ) {
             return Response::json([
                 'success' => false,
-                'user' => 'email, first name, last name or password not informed.'
+                'message' => 'email, first name, last name or password not informed.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
         if ( !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             return Response::json([
                 'success' => false,
-                'user' => 'invalid e-mail.'
+                'message' => 'invalid e-mail.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
@@ -55,11 +55,11 @@ class RegisterService {
         /**
          * Force user registered outside application, to NO ADMIN role.
          */
-        $data['is_admin'] = false;
+        $data['is_admin'] = 1;
         /**
          * Force user is active.
          */
-        $data['is_active'] = true;
+        $data['is_active'] = 1;
 
         /**
          * Unique e-mail constraint level check.
@@ -69,11 +69,9 @@ class RegisterService {
         if (!empty($user)) {
             return Response::json([
                 'success' => false,
-                'user' => 'e-mail already in use.'
+                'message' => 'e-mail already in use.'
             ], StatusCode::HTTP_NOT_FOUND);
         }
-
-
 
         return $this->userRepository->create($data);
 

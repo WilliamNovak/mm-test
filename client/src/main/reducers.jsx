@@ -14,9 +14,9 @@ import { loadingBarReducer } from 'react-redux-loading-bar'
  * Combine all reducers
  */
 const rootReducer = combineReducers({
+    toastr: toastrReducer,
     auth: AuthReducer,
     form: formReducer,
-    toastr: toastrReducer,
     loadingBar: loadingBarReducer
 })
 

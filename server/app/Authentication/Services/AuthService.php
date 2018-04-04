@@ -37,21 +37,21 @@ class AuthService {
         if (empty($user)) {
             return Response::json([
                 'success' => false,
-                'user' => 'user not found.'
+                'message' => 'user not found.'
             ], StatusCode::HTTP_NOT_FOUND);
         }
 
         if ($user['password'] !== md5($data['password'])) {
             return Response::json([
                 'success' => false,
-                'user' => 'invalid password.'
+                'message' => 'invalid password.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
         if ($user['is_active'] == false) {
             return Response::json([
                 'success' => false,
-                'user' => 'user disabled.'
+                'message' => 'user disabled.'
             ], StatusCode::HTTP_BAD_REQUEST);
         }
 
