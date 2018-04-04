@@ -82,7 +82,7 @@ class Auth {
         /**
          * If password dont math, throw new exception.
          */
-        if ($user['password'] !== md5($password)) {
+        if ($user['password'] !== $password) {
             throw new AuthFailureException("invalid password.");
         }
 

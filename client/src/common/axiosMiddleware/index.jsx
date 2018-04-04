@@ -9,13 +9,11 @@ import { logout } from '../../components/auth/actions/'
  */
 export function setAxiosHeader(logout = false) {
 
-    if (!axios.defaults.headers.common['authorization']) {
-        if (window.localStorage.getItem(consts.USER)) {
-            let user = JSON.parse(window.localStorage.getItem(consts.USER))
-            axios.defaults.headers.common['authorization'] = {
-                username: user.email,
-                password: user.password
-            }
+    if (window.sessionStorage.getItem(consts.USER)) {
+        let user = JSON.parse(window.sessionStorage.getItem(consts.USER))
+        if (user) {
+            let basic = btoa(user.email + ':' + user.password)
+            axios.defaults.headers.common['Authorization'] = `Basic ${basic}`
         }
     }
 
@@ -23,7 +21,7 @@ export function setAxiosHeader(logout = false) {
      * If logout clean axios header
      */
     if (logout) {
-        axios.defaults.headers.common['authorization'] = false
+        axios.defaults.headers.common['auth'] = false
     }
 
     return {
@@ -50,11 +48,8 @@ export function axiosResponse(e) {
  */
 export function header(user = false) {
     if (user) {
-
-        axios.defaults.headers.common['authorization'] = {
-            username: user.email,
-            password: user.password
-        }
+        let basic = btoa(user.email + ':' + user.password)
+        axios.defaults.headers.common['Authorization'] = `Basic ${basic}`
         return {
             type: 'AXIOS_HEADER_UPDATED'
         }

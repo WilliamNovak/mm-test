@@ -121,7 +121,7 @@ class ContactService {
 
     /**
      * Delete contact by id.
-     * 
+     *
      * @param int $contactId
      * @return array
      */

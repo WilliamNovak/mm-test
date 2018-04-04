@@ -28,6 +28,13 @@ class Index extends Component {
     render() {
 
         const { user } = this.props.auth
+        const { userContacts } = this.props.contacts
+
+        let tryContacts = true
+        if (!userContacts && tryContacts) {
+            this.props.getUserContacts(user.id)
+            tryContacts = false
+        }
 
         console.log('# auth.user', user)
 
@@ -56,7 +63,7 @@ class Index extends Component {
                             </nav>
 
                             <nav class="navbar navbar-light bg-light">
-                                <a class="navbar-brand">Olá, {user.first_name}</a>
+                                <a class="navbar-brand">Hi, {user.first_name}</a>
                             </nav>
 
                         </div>
@@ -64,23 +71,45 @@ class Index extends Component {
 
                     <br />
 
-                    <div className="row">
-                        <div className="col-md-6 col-xs-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Your booklist</h5>
-
+                    {userContacts
+                        ?
+                            (
+                                <div className="row">
+                                    <div className="col-md-6 col-xs-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                teste
+                                                <h5 class="card-title">Your booklist</h5>
+
+                                                    <div class="card">
+                                                        <div class="card-body">
+
+                                                        </div>
+                                                    </div>
+
                                             </div>
                                         </div>
 
+                                    </div>
                                 </div>
-                            </div>
+                            )
+                        :
+                            (
+                                <div className="row">
+                                    <div className="col-md-6 col-xs-12">
+                                        <div class="card text-center">
+                                            <div class="card-body">
+                                                <h1 className="card-title">
+                                                    <i className="la la-times-circle-o"></i>
+                                                </h1>
+                                                <div class="card-title">Your dont have contacts here.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                    }
 
-                        </div>
-                    </div>
+
                 </div>
             )
         }
@@ -94,7 +123,8 @@ class Index extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    contacts: state.contacts
 })
 const mapDispatchToProps = dispatch => bindActionCreators({
     getUserContacts
