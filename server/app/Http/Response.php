@@ -29,6 +29,7 @@ abstract class Response {
         $status_code_description = StatusCode::statusCodeDescription($http_status_code);
         header("Content-Type: application/json", true, $http_status_code);
         header("HTTP/1.1 {$http_status_code} {$status_code_description}", true, $http_status_code);
+
         // TODO add response headers.
         // TODO add json validation, if invalid json, throws new custom exception.
         echo json_encode($response);

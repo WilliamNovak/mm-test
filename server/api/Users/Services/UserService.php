@@ -95,7 +95,6 @@ class UserService {
      */
     public function update($userId, $data = [])
     {
-        dd('opa');
         $this->getRequestedUser($userId);
         if (isset($data['email'])) {
             $this->emailService->check($data['email']);

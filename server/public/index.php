@@ -1,5 +1,6 @@
 <?php
 
+
 if ( env('APP_ENV', 'local') !== 'local' ) {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
