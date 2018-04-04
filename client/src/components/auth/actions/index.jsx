@@ -33,6 +33,7 @@ export const signIn = (payload) => {
             }
         }).then(
             resp => {
+                alert('Sign in successful!')
                 dispatch([
                     setUser(resp.data.user),
                     hideLoading()
