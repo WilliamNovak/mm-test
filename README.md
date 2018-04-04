@@ -80,13 +80,9 @@ exit;
 
 Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with configuration of your database server.
 
-### Yeah! Let's go test it!!!
-
-
-### Screens of some view
+### Screens
 
 ![Contact list](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/contact-list.png)
-
 ![Sign in](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/sign-in.png) ![Sign up](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/sign-up.png)
 
 ### Extra
