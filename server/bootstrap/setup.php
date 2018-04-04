@@ -7,16 +7,17 @@
  */
 
 use MadeiraMadeira\Application\Http\StatusCode;
+use MadeiraMadeira\Application\Exceptions\ConfigNotFoundException;
 
 function config($name) {
     $filename = CONFIG_DIR.$name.'.php';
 
     try {
         if (!file_exists($filename)) {
-            throw new \ConfigNotFoundException(sprintf('%s not found!', $filename), StatusCode::HTTP_NOT_FOUND);
+            throw new ConfigNotFoundException(sprintf('%s not found!', $filename), StatusCode::HTTP_NOT_FOUND);
         }
     } catch (\Exception $e) {
-        dd(__CLASS__,  $e->getMessage());
+        //  dd(__CLASS__,  $e->getMessage());
     } finally {
         $config = require_once $filename;
         $data = $config[$name];
@@ -60,7 +61,7 @@ function databaseConfigValidator($data)
             throw new \Exception( sprintf('Database type %s unavailable!', $type));
         }
     } catch (\Exception $e) {
-        dd(__CLASS__,  $e->getMessage());
+        // dd(__CLASS__,  $e->getMessage());
     }
 
 }
