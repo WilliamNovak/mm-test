@@ -82,6 +82,13 @@ Rename `.env.example` to `.env` and edit this file on `/var/www/mm/server/` with
 
 ### Yeah! Let's go test it!!!
 
+
+### Screens of some view
+
+![Contact list](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/contact-list.png)
+
+![Sign in](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/sign-in.png) ![Sign up](https://raw.githubusercontent.com/WilliamNovak/mm-test/master/docs/screens/sign-up.png)
+
 ### Extra
 
 Import file `docs/postman_collection_v2.json` on `POSTMAN` to see all routes and the API requisitions without front end.
