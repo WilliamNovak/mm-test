@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { signUp, changeView } from './actions/'
+import { signUp } from './actions/'
 
 /**
  * Component Register.
@@ -37,12 +37,6 @@ class Register extends Component {
 
     render() {
 
-        const { created } = this.props.auth
-
-        if (created) {
-            this.context.router.push('/dashboard')
-        }
-
         return (
             <div className="container">
                 <div className="row">
@@ -60,14 +54,14 @@ class Register extends Component {
                         <form className="form-signin" onSubmit={this.onSubmit}>
                             <input onChange={this.onChange} type="text" maxLength="48" name="first_name" className="form-control" placeholder="Your first name" required />
                             <input onChange={this.onChange} type="text" maxLength="48" name="last_name" className="form-control" placeholder="Your last name" required />
-                            <input onChange={this.onChange} type="email" maxLength="112" name="email" className="form-control" placeholder="E-mail" required />
+                            <input onChange={this.onChange} type="email" maxLength="112" name="email" className="form-control" placeholder="Your e-mail address" required />
                             <input onChange={this.onChange} type="password" maxLength="12" name="password" className="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;" required />
                             <button className="btn btn-lg btn-primary btn-block" type="submit">
                                 Sign up
                             </button>
                         </form>
 
-                        <a href="#" onClick={() => this.props.changeView('logIn')} className="text-center new-account">Log in</a>
+                        <a href="#" className="text-center new-account">Log in</a>
 
                     </div>
 
@@ -86,5 +80,5 @@ Register.contextTypes = {
 const mapStateToProps = state => ({
     auth: state.auth
 })
-const mapDispatchToProps = dispatch => bindActionCreators({ signUp, changeView }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ signUp }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Register)
