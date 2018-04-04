@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { signIn, changeView } from './actions/'
+import { signIn } from './actions/'
 
 /**
  * Component Auth.
@@ -57,7 +57,7 @@ class Auth extends Component {
                             </button>
                         </form>
 
-                        <a href="#register" onClick={() => this.props.changeView('signUp')} className="text-center new-account">Create an account</a>
+                        <a href="#register" className="text-center new-account">Create an account</a>
 
                     </div>
 
@@ -70,5 +70,5 @@ class Auth extends Component {
 }
 
 const mapStateToProps = state => ({ })
-const mapDispatchToProps = dispatch => bindActionCreators({ signIn, changeView }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ signIn }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Auth)

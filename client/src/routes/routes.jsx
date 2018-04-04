@@ -15,6 +15,9 @@ export default props => (
     <Router history={hashHistory}>
         <Route path={CONSTS.ROUTES.INDEX} component={AuthComponent} />
         <Route path={CONSTS.ROUTES.REGISTER} component={RegisterComponent} />
+
+        <Route path={CONSTS.ROUTES.USER_INDEX} component={IndexComponent} />
+
         <Redirect from={CONSTS.ROUTES.NOT_FOUND} to={CONSTS.ROUTES.INDEX} />
     </Router>
 

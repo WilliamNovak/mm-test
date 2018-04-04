@@ -19,7 +19,7 @@ export const signUp = (payload) => {
             }
         }).then(
             resp => {
-                alert('Success, account has created!')
+                alert('Success, account has created! Please, back to log-in and sign in!')
                 dispatch([
                     setUser(resp.data.user),
                     hideLoading()

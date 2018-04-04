@@ -16,9 +16,6 @@ export const logout = () => {
 
 export const setUser = (user = false) => ({type: 'USER_FETCHED', payload: user})
 
-export const changeView = (page = 'logIn') => ({type: 'CHANGE_VIEW', payload: page})
-
-
 export const signIn = (payload) => {
     return dispatch => {
         dispatch(showLoading())
@@ -33,6 +30,7 @@ export const signIn = (payload) => {
             }
         }).then(
             resp => {
+                alert('Sign in successful!')
                 dispatch([
                     setUser(resp.data.user),
                     hideLoading()
