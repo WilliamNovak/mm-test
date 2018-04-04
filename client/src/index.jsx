@@ -7,7 +7,7 @@ import promise from 'redux-promise'
 import multi from 'redux-multi'
 import thunk from 'redux-thunk'
 
-import Application from './main/authOrApp'
+import Application from './main/application'
 import reducers from './main/reducers'
 
 import { setUser } from './components/auth/actions/'

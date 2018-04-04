@@ -37,8 +37,9 @@ class RegisterController extends Controller {
     public function register(Request $request)
     {
         $data = $request->get('user');
-        $user = $this->registerService->register($data);
 
+        $user = $this->registerService->register($data);
+        
         return Response::json([
             'success' => true,
             'user' => $user

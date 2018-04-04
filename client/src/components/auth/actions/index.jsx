@@ -2,6 +2,7 @@ import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 import consts from '../../../config/consts'
 
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { setAxiosHeader, axiosResponse, header } from '../../../common/axiosMiddleware/'
 
 export const logout = () => {
@@ -15,8 +16,12 @@ export const logout = () => {
 
 export const setUser = (user = false) => ({type: 'USER_FETCHED', payload: user})
 
+export const changeView = (page = 'logIn') => ({type: 'CHANGE_VIEW', payload: page})
+
+
 export const signIn = (payload) => {
     return dispatch => {
+        dispatch(showLoading())
         axios({
             url: `${consts.API_URL}/auth/authorize`,
             method: 'post',
@@ -28,11 +33,15 @@ export const signIn = (payload) => {
             }
         }).then(
             resp => {
-                dispatch(setUser(resp.data.user))
+                dispatch([
+                    setUser(resp.data.user),
+                    hideLoading()
+                ])
             }
         ).catch(
-            e => {
-                toastr.error('Error!', e.message)
+            err => {
+                alert(err.response.data.message)
+                dispatch(hideLoading())
             }
         )
     }
