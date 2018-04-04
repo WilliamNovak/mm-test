@@ -2,6 +2,7 @@ import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 import consts from '../../../config/consts'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
+import { setAxiosHeader, axiosResponse, header } from '../../../common/axiosMiddleware/'
 
 export const setUserContacts = (contacts = false) => ({type: 'USER_CONTACTS_FETCHED', payload: contacts})
 export const setContacts = (contacts = false) => ({type: 'CONTACTS_FETCHED', payload: contacts})
@@ -12,16 +13,16 @@ export const setContacts = (contacts = false) => ({type: 'CONTACTS_FETCHED', pay
  */
 export const getUserContacts = (userId) => {
     return dispatch => {
+        dispatch(setAxiosHeader())
         dispatch(showLoading())
         axios({
-            url: `${consts.API_URL}/contatcs/user/${userId}`,
+            url: `${consts.API_URL}/contacts/user/${userId}`,
             method: 'get',
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(
             resp => {
-                alert('Sign in successful!')
                 dispatch([
                     setUserContacts(resp.data.contacts),
                     hideLoading()
@@ -43,7 +44,7 @@ export const getContacts = () => {
     return dispatch => {
         dispatch(showLoading())
         axios({
-            url: `${consts.API_URL}/contatcs`,
+            url: `${consts.API_URL}/contacts`,
             method: 'get',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +73,7 @@ export const createContact = (payload = false) => {
     return dispatch => {
         dispatch(showLoading())
         axios({
-            url: `${consts.API_URL}/contatcs`,
+            url: `${consts.API_URL}/contacts`,
             method: 'post',
             data: {
                 contact: payload
@@ -103,7 +104,7 @@ export const updateContact = (contactId = 0, payload = false) => {
     return dispatch => {
         dispatch(showLoading())
         axios({
-            url: `${consts.API_URL}/contatcs/${contactId}`,
+            url: `${consts.API_URL}/contacts/${contactId}`,
             method: 'put',
             data: {
                 contact: payload
@@ -134,7 +135,7 @@ export const deleteContact = (contactId = 0) => {
     return dispatch => {
         dispatch(showLoading())
         axios({
-            url: `${consts.API_URL}/contatcs/${contactId}`,
+            url: `${consts.API_URL}/contacts/${contactId}`,
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json'

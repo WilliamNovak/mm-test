@@ -6,6 +6,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr'
  * Components reducers
  */
 import AuthReducer from '../components/auth/reducers/'
+import ContactsReducer from '../components/index/reducers/'
 
 import { loadingBarReducer } from 'react-redux-loading-bar'
 
@@ -15,6 +16,7 @@ import { loadingBarReducer } from 'react-redux-loading-bar'
  */
 const rootReducer = combineReducers({
     toastr: toastrReducer,
+    contacts: ContactsReducer,
     auth: AuthReducer,
     form: formReducer,
     loadingBar: loadingBarReducer

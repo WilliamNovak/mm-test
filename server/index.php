@@ -2,10 +2,9 @@
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-    header('Access-Control-Allow-Headers: Authorization, token, Content-Type');
-    header('Access-Control-Max-Age: 1728000');
-    header('Content-Length: 0');
-    header('Content-Type: text/plain');
+    header('Access-Control-Allow-Headers: Authorization, Auth, token, Content-Type, Access-Control-Allow-Headers');
+    header('Access-Control-Allow-Credentials: true');
+
     die();
 }
 
