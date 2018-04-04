@@ -815,5 +815,827 @@
     ],
     "pureCssSize": 50020,
     "unPureCssSize": 182756
+  },
+  {
+    "timeStamp": 1522843132180,
+    "time": 12453,
+    "hash": "ae06aae83bbac9e35519",
+    "errors": [],
+    "size": 911504,
+    "assets": [
+      {
+        "name": "./dist/_/src/common/templates/assets/line-awesome/fonts/line-awesome.eot",
+        "chunks": [],
+        "size": 112916
+      },
+      {
+        "name": "./dist/_/src/common/templates/assets/line-awesome/fonts/line-awesome.woff2",
+        "chunks": [],
+        "size": 45108
+      },
+      {
+        "name": "./dist/_/src/common/templates/assets/line-awesome/fonts/line-awesome.woff",
+        "chunks": [],
+        "size": 57436
+      },
+      {
+        "name": "./dist/_/src/common/templates/assets/line-awesome/fonts/line-awesome.ttf",
+        "chunks": [],
+        "size": 112728
+      },
+      {
+        "name": "main.js?t=1522843119342",
+        "chunks": [
+          0
+        ],
+        "size": 371403,
+        "minified": true
+      },
+      {
+        "name": "bundle.css",
+        "chunks": [
+          0
+        ],
+        "size": 182760
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 485
+      },
+      {
+        "name": "bundle.css.gz",
+        "chunks": [],
+        "size": 28668
+      }
+    ],
+    "chunks": [
+      {
+        "size": 887416,
+        "files": [
+          "main.js?t=1522843119342",
+          "bundle.css"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/react-redux-toastr/lib/Icon.js",
+            "size": 2557,
+            "id": "+LFz"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/ReduxToastr.js",
+            "size": 7782,
+            "id": "/3yq"
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+            "size": 100836,
+            "id": "/OLF"
+          },
+          {
+            "name": "./src/common/templates/assets/css/custom.css",
+            "size": 41,
+            "id": "/pXP"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/createBrowserHistory.js",
+            "size": 3379,
+            "id": "1Kzh"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/settle.js",
+            "size": 757,
+            "id": "21It"
+          },
+          {
+            "name": "./node_modules/lodash-es/_overArg.js",
+            "size": 380,
+            "id": "28Po"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/containsNode.js",
+            "size": 923,
+            "id": "2B9T"
+          },
+          {
+            "name": "./node_modules/redux/es/index.js + 6 modules",
+            "size": 21113,
+            "id": "2KeS"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/DOMUtils.js",
+            "size": 2193,
+            "id": "2inJ"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/ExecutionEnvironment.js",
+            "size": 164,
+            "id": "3qHv"
+          },
+          {
+            "name": "./node_modules/symbol-observable/es/index.js",
+            "size": 403,
+            "id": "3yIl"
+          },
+          {
+            "name": "./src/common/axiosMiddleware/index.jsx",
+            "size": 2021,
+            "id": "4Wdc"
+          },
+          {
+            "name": "./node_modules/redux-thunk/lib/index.js",
+            "size": 529,
+            "id": "4ufr"
+          },
+          {
+            "name": "./node_modules/react-redux-loading-bar/build/loading_bar_middleware.js",
+            "size": 2176,
+            "id": "50q9"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/normalizeHeaderName.js",
+            "size": 357,
+            "id": "5VQ+"
+          },
+          {
+            "name": "./node_modules/lodash-es/_nodeUtil.js",
+            "size": 763,
+            "id": "6PaC"
+          },
+          {
+            "name": "./src/components/auth/reducers/index.jsx",
+            "size": 1295,
+            "id": "6Zjf"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/createHistory.js",
+            "size": 5659,
+            "id": "6kDn"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/css/react-redux-toastr.min.css",
+            "size": 41,
+            "id": "6o0j"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/ToastrBox.js",
+            "size": 11336,
+            "id": "7CoI"
+          },
+          {
+            "name": "./node_modules/axios/lib/adapters/xhr.js",
+            "size": 6170,
+            "id": "7GwW"
+          },
+          {
+            "name": "./src/components/register/index.jsx",
+            "size": 6711,
+            "id": "7eNF"
+          },
+          {
+            "name": "./src/common/templates/assets/line-awesome/css/line-awesome.min.css",
+            "size": 41,
+            "id": "8DiA"
+          },
+          {
+            "name": "./node_modules/react-helmet/lib/HelmetConstants.js",
+            "size": 1674,
+            "id": "8bnF"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/BrowserProtocol.js",
+            "size": 3191,
+            "id": "8hnC"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getActiveElement.js",
+            "size": 912,
+            "id": "9U7y"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/ProgressBar.js",
+            "size": 3104,
+            "id": "A1YO"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "BEQ0"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/ToastrConfirm.js",
+            "size": 9250,
+            "id": "Bx8O"
+          },
+          {
+            "name": "./node_modules/eventemitter3/index.js",
+            "size": 8608,
+            "id": "BzvE"
+          },
+          {
+            "name": "./node_modules/react-router/es/index.js + 32 modules",
+            "size": 76314,
+            "id": "CIox"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/createHashHistory.js",
+            "size": 4758,
+            "id": "CK0t"
+          },
+          {
+            "name": "./node_modules/redux-form/es/util/isHotReloading.js",
+            "size": 219,
+            "id": "CjI/"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/config.js",
+            "size": 223,
+            "id": "CoWK"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/buildURL.js",
+            "size": 1576,
+            "id": "DQCr"
+          },
+          {
+            "name": "./node_modules/create-react-class/index.js",
+            "size": 699,
+            "id": "DT0+"
+          },
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 509,
+            "id": "DuR2"
+          },
+          {
+            "name": "./node_modules/lodash-es/_Symbol.js",
+            "size": 116,
+            "id": "EZG+"
+          },
+          {
+            "name": "./node_modules/symbol-observable/es/ponyfill.js",
+            "size": 333,
+            "id": "Fnm7"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/createError.js",
+            "size": 625,
+            "id": "FtD3"
+          },
+          {
+            "name": "./node_modules/lodash-es/isBuffer.js",
+            "size": 1112,
+            "id": "FvOO"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/isURLSameOrigin.js",
+            "size": 2245,
+            "id": "GHBc"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "GiK3"
+          },
+          {
+            "name": "./node_modules/warning/browser.js",
+            "size": 1807,
+            "id": "GvBW"
+          },
+          {
+            "name": "./node_modules/classnames/index.js",
+            "size": 1102,
+            "id": "HW6M"
+          },
+          {
+            "name": "(webpack)/node_modules/process/browser.js",
+            "size": 5418,
+            "id": "Huw6"
+          },
+          {
+            "name": "./node_modules/react-helmet/lib/HelmetUtils.js",
+            "size": 22916,
+            "id": "HzFt"
+          },
+          {
+            "name": "./src/components/register/actions/index.jsx",
+            "size": 1399,
+            "id": "IALy"
+          },
+          {
+            "name": "./node_modules/lodash-es/_getPrototype.js",
+            "size": 161,
+            "id": "J/I/"
+          },
+          {
+            "name": "./src/config/consts.jsx",
+            "size": 267,
+            "id": "J3oy"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/bind.js",
+            "size": 256,
+            "id": "JP+z"
+          },
+          {
+            "name": "./node_modules/axios/lib/defaults.js",
+            "size": 2316,
+            "id": "KCLY"
+          },
+          {
+            "name": "./node_modules/prop-types/index.js",
+            "size": 956,
+            "id": "KSGD"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/runTransitionHook.js",
+            "size": 762,
+            "id": "Kwm3"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/createMemoryHistory.js",
+            "size": 3827,
+            "id": "Mmla"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/RefreshProtocol.js",
+            "size": 1131,
+            "id": "NSk9"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/index.js",
+            "size": 1059,
+            "id": "NawO"
+          },
+          {
+            "name": "./node_modules/shallowequal/index.js",
+            "size": 1080,
+            "id": "Ngpj"
+          },
+          {
+            "name": "./node_modules/react-dom/index.js",
+            "size": 1363,
+            "id": "O27J"
+          },
+          {
+            "name": "./node_modules/query-string/index.js",
+            "size": 4306,
+            "id": "OAwv"
+          },
+          {
+            "name": "./node_modules/react-redux-loading-bar/build/loading_bar.js",
+            "size": 9579,
+            "id": "OFmi"
+          },
+          {
+            "name": "./node_modules/lodash.isarray/index.js",
+            "size": 5164,
+            "id": "Ox4C"
+          },
+          {
+            "name": "./node_modules/react-helmet/lib/Helmet.js",
+            "size": 13943,
+            "id": "PIAa"
+          },
+          {
+            "name": "./node_modules/lodash.keysin/index.js",
+            "size": 3838,
+            "id": "PRQy"
+          },
+          {
+            "name": "./node_modules/lodash.isarguments/index.js",
+            "size": 5712,
+            "id": "Q0FI"
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
+            "size": 1492,
+            "id": "Q4WQ"
+          },
+          {
+            "name": "./src/main/app.jsx",
+            "size": 1179,
+            "id": "Qjr1"
+          },
+          {
+            "name": "./node_modules/react-redux/es/index.js + 14 modules",
+            "size": 38343,
+            "id": "RH2O"
+          },
+          {
+            "name": "./node_modules/is-buffer/index.js",
+            "size": 698,
+            "id": "Re3r"
+          },
+          {
+            "name": "./src/components/auth/index.jsx",
+            "size": 5887,
+            "id": "RqUo"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/useBasename.js",
+            "size": 3638,
+            "id": "SOiI"
+          },
+          {
+            "name": "./src/components/common/loading.jsx",
+            "size": 2937,
+            "id": "Sl/W"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "TJez"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/transformData.js",
+            "size": 550,
+            "id": "TNV1"
+          },
+          {
+            "name": "./node_modules/react-redux-loading-bar/build/index.js",
+            "size": 1207,
+            "id": "TfjU"
+          },
+          {
+            "name": "./src/common/templates/toastr-messages/messages.jsx",
+            "size": 756,
+            "id": "UCMx"
+          },
+          {
+            "name": "./node_modules/deep-equal/lib/keys.js",
+            "size": 202,
+            "id": "WOkU"
+          },
+          {
+            "name": "./node_modules/lodash-es/_root.js",
+            "size": 298,
+            "id": "WlpS"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/utils.js",
+            "size": 4976,
+            "id": "WtCf"
+          },
+          {
+            "name": "./src/common/templates/dependecies.js",
+            "size": 243,
+            "id": "XFnS"
+          },
+          {
+            "name": "./src/components/index/index.jsx",
+            "size": 2749,
+            "id": "XJEi"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/actions.js",
+            "size": 1463,
+            "id": "XQW8"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/Axios.js",
+            "size": 2189,
+            "id": "XmWM"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/Actions.js",
+            "size": 628,
+            "id": "Y4sZ"
+          },
+          {
+            "name": "./node_modules/lodash-es/isObjectLike.js",
+            "size": 612,
+            "id": "YByk"
+          },
+          {
+            "name": "./node_modules/lodash-es/stubFalse.js",
+            "size": 278,
+            "id": "YXvJ"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/LocationUtils.js",
+            "size": 3697,
+            "id": "a2BU"
+          },
+          {
+            "name": "./node_modules/redux-form/es/index.js + 225 modules",
+            "size": 303450,
+            "id": "ao4a"
+          },
+          {
+            "name": "./node_modules/axios/lib/utils.js",
+            "size": 7541,
+            "id": "cGG2"
+          },
+          {
+            "name": "./node_modules/axios/lib/cancel/CancelToken.js",
+            "size": 1240,
+            "id": "cWxy"
+          },
+          {
+            "name": "./node_modules/invariant/browser.js",
+            "size": 1397,
+            "id": "crWv"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": "cxPT"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+            "size": 935,
+            "id": "czSA"
+          },
+          {
+            "name": "./node_modules/flux-standard-action/lib/index.js",
+            "size": 669,
+            "id": "dANW"
+          },
+          {
+            "name": "./src/main/application.jsx",
+            "size": 2730,
+            "id": "dBZW"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/isAbsoluteURL.js",
+            "size": 563,
+            "id": "dIwP"
+          },
+          {
+            "name": "./node_modules/axios/lib/cancel/Cancel.js",
+            "size": 385,
+            "id": "dVOP"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "e6+Q"
+          },
+          {
+            "name": "(webpack)/buildin/harmony-module.js",
+            "size": 596,
+            "id": "f1Eh"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isNode.js",
+            "size": 702,
+            "id": "f2RQ"
+          },
+          {
+            "name": "./src/main/reducers.jsx",
+            "size": 778,
+            "id": "fPa6"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/InterceptorManager.js",
+            "size": 1251,
+            "id": "fuGk"
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": "gt/O"
+          },
+          {
+            "name": "./node_modules/lodash-es/_cloneBuffer.js",
+            "size": 1054,
+            "id": "gzeU"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/icons.js",
+            "size": 2282,
+            "id": "zGsE"
+          },
+          {
+            "name": "multi ./src/index.jsx",
+            "size": 28,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/redux-multi/lib/index.js",
+            "size": 482,
+            "id": "hLqs"
+          },
+          {
+            "name": "./node_modules/hoist-non-react-statics/index.js",
+            "size": 2602,
+            "id": "hYij"
+          },
+          {
+            "name": "./node_modules/deep-equal/index.js",
+            "size": 3051,
+            "id": "hlyO"
+          },
+          {
+            "name": "./node_modules/lodash.isplainobject/index.js",
+            "size": 3242,
+            "id": "hvKM"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/HashProtocol.js",
+            "size": 4232,
+            "id": "ip+G"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/toastrEmitter.js",
+            "size": 1562,
+            "id": "l7oo"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/PathUtils.js",
+            "size": 2973,
+            "id": "lFM1"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/reducer.js",
+            "size": 3280,
+            "id": "mgx6"
+          },
+          {
+            "name": "./node_modules/axios/index.js",
+            "size": 40,
+            "id": "mtWM"
+          },
+          {
+            "name": "./node_modules/deep-equal/lib/is_arguments.js",
+            "size": 641,
+            "id": "n/RL"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/Button.js",
+            "size": 585,
+            "id": "n8WY"
+          },
+          {
+            "name": "./node_modules/lodash-es/_freeGlobal.js",
+            "size": 171,
+            "id": "nSxQ"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/parseHeaders.js",
+            "size": 1393,
+            "id": "oJlt"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/cookies.js",
+            "size": 1365,
+            "id": "p1b6"
+          },
+          {
+            "name": "./node_modules/axios/lib/cancel/isCancel.js",
+            "size": 102,
+            "id": "pBtG"
+          },
+          {
+            "name": "./node_modules/redux-promise/lib/index.js",
+            "size": 1069,
+            "id": "po9w"
+          },
+          {
+            "name": "./node_modules/lodash._basefor/index.js",
+            "size": 1562,
+            "id": "pqch"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/spread.js",
+            "size": 564,
+            "id": "pxG4"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/combineURLs.js",
+            "size": 380,
+            "id": "qRfI"
+          },
+          {
+            "name": "./src/index.jsx",
+            "size": 2019,
+            "id": "qYAe"
+          },
+          {
+            "name": "./src/common/templates/assets/css/bootstrap.min.css",
+            "size": 41,
+            "id": "qbNF"
+          },
+          {
+            "name": "./node_modules/react-redux-toastr/lib/constants.js",
+            "size": 735,
+            "id": "qw0e"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/AsyncUtils.js",
+            "size": 1133,
+            "id": "rMmN"
+          },
+          {
+            "name": "./node_modules/react-redux-loading-bar/build/immutable.js",
+            "size": 515,
+            "id": "rauv"
+          },
+          {
+            "name": "./node_modules/strict-uri-encode/index.js",
+            "size": 182,
+            "id": "rprB"
+          },
+          {
+            "name": "./node_modules/lodash-es/isPlainObject.js",
+            "size": 1648,
+            "id": "sMP3"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/shallowEqual.js",
+            "size": 1616,
+            "id": "sgb3"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/DOMStateStorage.js",
+            "size": 2548,
+            "id": "t+J7"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/enhanceError.js",
+            "size": 592,
+            "id": "t8qj"
+          },
+          {
+            "name": "./node_modules/axios/lib/axios.js",
+            "size": 1368,
+            "id": "tIFN"
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/history/lib/useQueries.js",
+            "size": 4033,
+            "id": "teWx"
+          },
+          {
+            "name": "./node_modules/axios/lib/helpers/btoa.js",
+            "size": 986,
+            "id": "thJu"
+          },
+          {
+            "name": "./src/routes/routes.jsx",
+            "size": 1327,
+            "id": "tuUT"
+          },
+          {
+            "name": "./node_modules/exenv/index.js",
+            "size": 863,
+            "id": "u4m+"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isTextNode.js",
+            "size": 479,
+            "id": "uO0E"
+          },
+          {
+            "name": "./node_modules/react-side-effect/lib/index.js",
+            "size": 4246,
+            "id": "vAAJ"
+          },
+          {
+            "name": "./node_modules/react-redux-loading-bar/build/loading_bar_ducks.js",
+            "size": 2202,
+            "id": "vC3k"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5664,
+            "id": "vttU"
+          },
+          {
+            "name": "./src/components/common/header.jsx",
+            "size": 2789,
+            "id": "wTre"
+          },
+          {
+            "name": "./src/components/auth/actions/index.jsx",
+            "size": 1954,
+            "id": "wfyo"
+          },
+          {
+            "name": "./node_modules/create-react-class/factory.js",
+            "size": 29832,
+            "id": "wqO5"
+          },
+          {
+            "name": "./node_modules/lodash-es/_baseGetTag.js + 2 modules",
+            "size": 2495,
+            "id": "wqbf"
+          },
+          {
+            "name": "./node_modules/axios/lib/core/dispatchRequest.js",
+            "size": 2199,
+            "id": "xLtR"
+          },
+          {
+            "name": "./node_modules/is-promise/index.js",
+            "size": 165,
+            "id": "zmAe"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 50066,
+    "unPureCssSize": 182760
   }
 ]
